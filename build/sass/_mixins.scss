@@ -1,0 +1,51 @@
+%transition {
+	transition: .5s cubic-bezier(.33,.57,.33,.57);
+}
+
+%flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+%text-shadow {
+	color: #152a49;
+	text-shadow: 
+		-0   -2px 0   #FFAE00,
+		 0   -2px 0   #FFAE00,
+		-0    2px 0   #FFAE00,
+		 0    2px 0   #FFAE00,
+		-2px -0   0   #FFAE00,
+		 2px -0   0   #FFAE00,
+		-2px  0   0   #FFAE00,
+		 2px  0   0   #FFAE00,
+		-1px -2px 0   #FFAE00,
+		 1px -2px 0   #FFAE00,
+		-1px  2px 0   #FFAE00,
+		 1px  2px 0   #FFAE00,
+		-2px -1px 0   #FFAE00,
+		 2px -1px 0   #FFAE00,
+		-2px  1px 0   #FFAE00,
+		 2px  1px 0   #FFAE00,
+		-2px -2px 0   #FFAE00,
+		 2px -2px 0   #FFAE00,
+		-2px  2px 0   #FFAE00,
+		 2px  2px 0   #FFAE00,
+		-2px -2px 0   #FFAE00,
+		 2px -2px 0   #FFAE00,
+		-2px  2px 0   #FFAE00,
+		 2px  2px 0   #FFAE00;
+}
+
+%skew {
+	transform: skewX(-3deg) rotate(-3deg);
+}
+
+@mixin setWH($width, $height) {
+	width: $width;
+	height: $height;
+}
+
+@mixin BG($url) {
+	background: url($url) no-repeat center center;
+}
