@@ -62,7 +62,7 @@ gulp.task('openServer', function () {
 		proxy: 'js.loc/', // local server
 		online: true,
 		host: 'localhost',
-    port: 9000,
+    	port: 9000,
 		logPrefix: "openServer"
 	});
 });

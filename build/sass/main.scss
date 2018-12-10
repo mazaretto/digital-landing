@@ -100,7 +100,7 @@ p {
 
 	&__particles {
 		height: 637px;
-		z-index: 0;
+		z-index: -1;
 		width: 2500px;
 		background: url('../img/particles.png') no-repeat;
 		position: absolute;
@@ -112,9 +112,10 @@ p {
 		position: absolute;
 		right: -90px;
 		top: 10px;
-		z-index: 0;
+		z-index: -1;
 	}
 	&__block {
+		z-index: 0;
 		&-descr {
 			margin-left: -35px;
 
@@ -162,14 +163,87 @@ p {
 	background-size: cover;
 	margin-top: -2px;
 	&__blocks {
-		&-all {
+		&-last {
+			padding: 50px 60px;
 
+			> p:first-child {
+				margin-bottom: 40px;
+				> strong {font-size: 1.535rem!important;}
+			}
+			button {
+				box-shadow: 0 0 100px rgba(255,174,0,.4);
+			}
+		}
+		&-all {
+			margin-bottom: 45px;
+			position: relative;
+			padding-top: 110px;
+			> span {
+				font-size: 1.45rem;
+				color: $orange;
+				position: absolute;
+				margin-top: 20px;
+				margin-left: -5px;
+				font-family: 'Gotham Pro',sans-serif;
+				font-weight: normal;
+			}
+			> p:first-child {
+				margin-bottom: -10px;
+			}
+			> p {
+				margin-left: 43px;
+				width: 100%;
+			}
+			> img {
+				position: absolute;
+				width: 100%;
+			}
+
+			background-size: 100% 100%!important;
 		}
 		.block1 {
-			@include setWH(428px,251px)
-			@include BG('../img/icons/b1.png');
+			@include setWH(488px,271px);
+			> img {left: 0; top: 0px;}
+		}
+		.block2 {
+			@include setWH(417px,269px);
+			> img {left: 13px; top: -10px;}
+		}
+		.block3 {
+			@include setWH(423px,286px);
+			> img {left: 13px; top: 0;}
+		}
+		.block4 {
+			@include setWH(402px,270px);
+			> img {left: 15px; top: 5px;}
+		}
+		.block5 {
+			@include setWH(401px,281px);
+			> img {left: 18px; top: -25px;}
 		}
 	}
+}
+
+strong {
+	font-family: 'Gotham Pro Bold';
+}
+
+strong.heading_title {
+	font-size: 1.4rem;
+	line-height: 1.3;
+}
+
+p.blue_text {
+	color: #9099b4;
+	font-size: 1rem;
+}
+
+.center {
+	@extend %flex-center;
+}
+
+.center-in-col {
+	@extend %flex-center-in-col;
 }
 
 .button_wrap {
