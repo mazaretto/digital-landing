@@ -3,16 +3,37 @@
 @import "_fonts.scss";
 @import "_mixins.scss";
 @import "_vars.scss";
+@import "_main.scss";
 
 body {
 	margin: 0;
 	padding: 0;
 	overflow-x: hidden;
+	&::-webkit-scrollbar {
+		width: 5px;
+		background: #252c38;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: $orange;
+	}
 }
 
 * {
 	box-sizing: border-box;
 	outline: 0;
+}
+
+img {
+	transition: .5s ease;
+}
+
+strong {
+	font-family: 'Gotham Pro Bold';
+}
+
+strong.heading_title {
+	font-size: 1.4rem;
+	line-height: 1.3;
 }
 
 a {
@@ -76,16 +97,21 @@ p {
 	font-size: 60px;
 	max-width: 700px;
 	letter-spacing: 2px;
+	text-align: center;
 	margin-bottom: 120px;
 	
 	@extend %skew;
 	&:before {
-		content: 'Для кого этот курс?';
+		content: attr(data-placeholder);
 		font-family: 'Roboto Slab',sans-serif;
 		position: absolute;
 		z-index: -1;
 		left: 5px;
+		width: 100%;
+		height: 100%;
+		display: block;
 		top: 5px;
+		text-align: center;
 		@extend %text-shadow;
 		opacity: .2;
 	}
@@ -177,6 +203,7 @@ p {
 		&-all {
 			margin-bottom: 45px;
 			position: relative;
+			z-index: 0;
 			padding-top: 110px;
 			> span {
 				font-size: 1.45rem;
@@ -197,6 +224,7 @@ p {
 			> img {
 				position: absolute;
 				width: 100%;
+				z-index: -1;
 			}
 
 			background-size: 100% 100%!important;
@@ -224,13 +252,89 @@ p {
 	}
 }
 
-strong {
-	font-family: 'Gotham Pro Bold';
+.knowing {
+	height: 1320px;
+	background: url('../img/bg3.jpg') no-repeat center bottom;
+	background-size: cover;
+	margin-top: -2px;
+	
+	p {
+		margin-bottom: 25px;
+	}
+	img {
+		position: absolute;
+		right: 120px;
+		top: 10px;
+	}
+	.heading_title {
+		line-height: 1;
+		position: relative;
+		z-index: 0;
+		.qoute {
+			width: 38px;
+			display: block;
+			position: absolute;
+			height: 38px;
+			border-radius: 5px;
+			border-bottom-right-radius: 3px;
+			z-index: -1;
+			border: 2px solid #8a6414;
+			&:before {
+				width: 20px;
+				height: 20px;
+				z-index: -1;
+				border: 2px solid #8a6414;
+				border-bottom-right-radius: 2px;
+				border-bottom-left-radius: 2px;
+				border-top: none;
+				transform: skewX(-22.5deg);
+				background: #151925;
+				display: block;
+				position: absolute;
+				bottom: -19.5px;
+				left: 34.45%;
+				content: '';
+			}
+		}
+		.qoute.first {
+			top: -28px;
+			left: -38px;
+		}
+		.qoute.second {
+			top: -28px;
+			left: 10px;
+		}
+	}
+	.flex {
+		margin-top: 107px;
+	}
+	.link_button {
+		margin-right: 25px;
+		transform: skewX(-5deg) rotate(-5deg);
+		height: 44px;
+	}
+	.message_box {
+		width: 562px;
+		height: 307px;
+		@include BG('../img/message.png');
+		background-size: contain;
+		font-size: 1.4rem;
+		> p {
+			text-align: center;
+			line-height: 1.4;
+			margin-top: -20px;
+			* {font-size: inherit!important;}
+		}
+	}
 }
 
-strong.heading_title {
-	font-size: 1.4rem;
-	line-height: 1.3;
+.orange {color: $orange;font-weight: bold;font-size: 1.6rem;font-family: 'GothamPro Bold', sans-serif;}
+
+.orange_text {
+	font-weight: bold;
+	font-family: 'Roboto Slab',serif;
+	color: $orange;
+	font-size: 1.6rem;
 }
 
 p.blue_text {
@@ -242,8 +346,42 @@ p.blue_text {
 	@extend %flex-center;
 }
 
+.flex {display: flex;}
+
 .center-in-col {
 	@extend %flex-center-in-col;
+}
+
+.center-in-row {
+	@extend %flex-center-in-row;
+}
+
+.link_button {
+	cursor: pointer;
+	transform: skewX(-2deg) rotate(-1deg);
+	background-color: $orange;
+	border: 0;
+	color: #252c46;
+	font-size: 20px;
+	font-weight: bold;
+	overflow: hidden;
+	min-width: 84px;
+	height: 54px;
+	text-transform: uppercase;
+	@extend %flex-center;
+	@extend %transition;
+
+	color: #252c38;
+
+	&:hover {
+		box-shadow: 0 0 30px rgba(255,174,0,.4);
+	}
+	svg > path {transition: .5s ease;}
+	&:active {
+		svg > path {
+			fill: $white;
+		}
+	}
 }
 
 .button_wrap {

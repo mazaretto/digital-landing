@@ -8,10 +8,13 @@
 	align-items: center;
 }
 
+%flex-center-in-row {
+	@extend %flex-center;
+	flex-direction: row;
+}
+
 %flex-center-in-col {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	@extend %flex-center;
 	flex-direction: column;
 }
 

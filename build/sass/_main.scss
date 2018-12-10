@@ -1,0 +1,105 @@
+.skew_rect {
+    position: relative;
+    > .item1 { 
+        width: 100%; 
+        height: 3px; 
+        top: 0; 
+        left:0; 
+    } 
+    > .item2 { 
+        width: 3px; 
+        height: 100%; 
+        top: 0; 
+        left:0; 
+    } 
+    > .item3 { 
+        width: 100%; 
+        height: 3px; 
+        bottom: 0; 
+        left:0; 
+    } 
+    > .item4 { 
+        width: 3px; 
+        height: 100%; 
+        top: 0; 
+        right:0; 
+    }
+    span[class^="item"] { 
+        background: -moz-linear-gradient(left, rgba(255,174,0,1) 0%, rgba(255,174,0,0.98) 1%, rgba(255,174,0,0.05) 40%, rgba(255,174,0,0.05) 50%, rgba(255,174,0,0.05) 60%, rgba(255,174,0,1) 100%); /* FF3.6-15 */ 
+        background: -webkit-linear-gradient(left, rgba(255,174,0,1) 0%,rgba(255,174,0,0.98) 1%,rgba(255,174,0,0.05) 40%,rgba(255,174,0,0.05) 50%,rgba(255,174,0,0.05) 60%,rgba(255,174,0,1) 100%); /* Chrome10-25,Safari5.1-6 */ 
+        background: linear-gradient(to right, rgba(255,174,0,1) 0%,rgba(255,174,0,0.98) 1%,rgba(255,174,0,0.05) 40%,rgba(255,174,0,0.05) 50%,rgba(255,174,0,0.05) 60%,rgba(255,174,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ 
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffae00', endColorstr='#ffae00',GradientType=1 ); /* IE6-9 */ 
+    } 
+    span {display: block;position: absolute;} 
+}
+
+.youtube_rect {
+    width: 285px;
+    height: 90px;
+    position: absolute;
+    left: -20px;
+    margin-top: 200px;
+    transform: skewX(-5deg) rotate(-4deg);
+    .item1,.item3 {height: 2px;}
+    .item2,.item4 {width: 2px;}
+
+    p {
+        font-size: 1.8rem;
+        .link_button {
+            margin-right: 35px;
+        }
+    }
+}
+
+.plaha { 
+    position: absolute;
+    width: 400px; 
+    height: 145px; 
+    transform: skewX(10deg) rotate(-4.5deg); 
+    right: 80px;
+    margin-top: 175px;
+
+    .skew_rect {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+    .skew_rect.last {
+        animation: skewRectLast 2s ease 1 alternate forwards;
+    }
+    .skew_rect.second {
+        animation: skewRectSecond 2s ease 1 alternate forwards;
+    }
+
+    > p {
+        text-align: center;
+        line-height: 1.4;
+        font-size: 1.3rem;
+        opacity: 0;
+        transform: scale(.5);
+        animation: skewRectVisible 2s ease 1 alternate forwards;
+    }
+}
+
+@keyframes skewRectLast {
+    to {
+        margin-top: -32px;
+        margin-left: 32px;
+        opacity: .1;
+    }
+}
+
+@keyframes skewRectSecond {
+    to {
+        margin-top: -16px;
+        margin-left: 16px;
+        opacity: .4;
+    }
+}
+
+@keyframes skewRectVisible {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
