@@ -3,12 +3,16 @@
 @import "_fonts.scss";
 @import "_mixins.scss";
 @import "_vars.scss";
+@import "_media.scss";
 @import "_main.scss";
+
+html, body {
+	overflow-x: hidden;
+}
 
 body {
 	margin: 0;
 	padding: 0;
-	overflow-x: hidden;
 	&::-webkit-scrollbar {
 		width: 5px;
 		background: #252c38;
@@ -260,11 +264,12 @@ p {
 	
 	p {
 		margin-bottom: 25px;
+		font-size: 1.2rem;
 	}
 	img {
 		position: absolute;
-		right: 120px;
-		top: 10px;
+		right: -115px;
+		top: -30px;
 	}
 	.heading_title {
 		line-height: 1;
@@ -314,7 +319,7 @@ p {
 		height: 44px;
 	}
 	.message_box {
-		width: 562px;
+		width: 602px;
 		height: 307px;
 		@include BG('../img/message.png');
 		background-size: contain;
@@ -326,6 +331,193 @@ p {
 			* {font-size: inherit!important;}
 		}
 	}
+}
+
+.exp {
+	height: 960px;
+	z-index: 0;
+	margin-top: -5px;
+	padding-top: 5px;
+	position: relative;
+	background: url('../img/bg4.jpg') no-repeat center bottom;
+	background-size: cover;
+
+	.h2_white:not(.exp__title__month) {
+		margin-bottom: 10px;
+	}
+	.exp__title__month {
+		color: $orange;
+		text-shadow: 0 0 100px rgba(255,174,0,.6);
+	}
+
+	&__speed {
+		position: absolute;
+		top: -20px!important;
+		left: 20px!important;
+		width: 100%;
+		text-align: center;
+		user-select: none;
+		transform: skewX(-10deg) rotate(-10deg);
+		color: #101626;
+		text-shadow: 2px 0px 15px #101626,-2px 0px 15px #101626;
+		font-size: 10rem;
+	}
+	.heading_title {
+		color: $white;
+	}
+	.star {
+		position: relative;
+		margin: 0 auto;
+		width: 506px;
+		@mixin setBefore($top,$left) {
+			&:before {
+				top: $top;
+				left: $left;
+			}
+			&:after {
+				top: $top - 8px;
+				left: $left - 8px;
+			}
+		}
+
+		span {
+			position:absolute;
+			color: #fff;
+			font-size: 1.3rem;
+			cursor: pointer;
+			font-weight: normal;
+			font-family: 'Gotham Pro',sans-serif;
+			> * {font-size: inherit!important;}
+			&:after,&:before {
+				border-radius: 50%;
+				@extend %before-template;
+				@extend %transition;
+			}
+			&:before {
+				width: 12px;
+				height: 12px;
+				background-color: $orange;
+			}
+			&:after {
+				width: 28px;
+				height: 28px;
+				background-color: rgba(255,174,0,.15);
+			}
+
+			&:hover {
+				&:before {
+					transform: scale(1.2);
+				}
+				&:after {
+					transform: scale(.9);
+				}
+			}
+		}
+		&__item1,&__item2 {
+			top: -21px;
+		}
+
+		&__item3,&__item4 {
+			top: 155px;
+		}
+
+		&__item5,&__item6 {
+			top: 330px;
+		}
+
+		&__item1 {
+			width: 243px;
+			left: -10%;
+			@include setBefore(72px, 164.5px)
+		}
+		&__item2 {
+			left: 70%;
+			width: 191px;
+			@include setBefore(72px, 30.5px)
+		}
+		&__item3 {
+			width: 156px;
+			left: -29%;
+			@include setBefore(19px, 187.5px)
+		}
+		&__item4 {
+			left: 95%;
+			width: 279px;
+			@include setBefore(17px, -30px)
+		}
+		&__item5 {
+			width: 226px;
+			left: -42%;
+			@include setBefore(17px, 247.5px)
+		}
+		&__item6 {
+			left: 95%;
+			width: 277px;
+			@include setBefore(23px, -36px)
+		}
+		&__item7 {
+			top: 500px;
+			width: 413px;
+			left: 9%;
+			@include setBefore(-30px, 195.5px)
+		}
+	}
+}
+.text-right {
+	text-align: right;
+}
+.text-center {
+	text-align: center;
+}
+.scene {
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+
+	&__placeholder {
+		width: 100%;
+		z-index: -1;
+		height: 100%;
+		position:relative;
+		> img {
+			position: absolute;
+		}
+	}
+}
+
+footer {
+	height: 90px;
+	background-color: #1e293d;
+	padding-top: 36.5px;
+	p {
+		color: #9099b4;
+		margin: 0;
+	}
+	a {
+		display: inline;
+		color:$orange;
+		border-bottom: 1px solid $orange;
+		font-weight: normal;
+		font-family: 'Gotham Pro',sans-serif;
+	}
+}
+
+.clock1 {
+	top: 60%!important;
+	left: 5%!important;
+}
+
+.clock2 {
+	top: 50%!important;
+	left: 79%!important;
+}
+
+.clock3 {
+	top: 43%!important;
+	left: 20%!important;
 }
 
 .orange {color: $orange;font-weight: bold;font-size: 1.6rem;font-family: 'GothamPro Bold', sans-serif;}

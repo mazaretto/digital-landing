@@ -18,6 +18,12 @@
 	flex-direction: column;
 }
 
+%before-template {
+	content:'';
+	display:block;
+	position: absolute;
+}
+
 %text-shadow {
 	color: #152a49;
 	text-shadow: 
