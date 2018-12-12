@@ -13,6 +13,7 @@ html, body {
 body {
 	margin: 0;
 	padding: 0;
+	background-color: #161721;
 	&::-webkit-scrollbar {
 		width: 5px;
 		background: #252c38;
@@ -33,6 +34,10 @@ img {
 
 strong {
 	font-family: 'Gotham Pro Bold';
+}
+
+input {
+	@extend %transition;
 }
 
 strong.heading_title {
@@ -200,7 +205,7 @@ p {
 				> strong {font-size: 1.535rem!important;}
 			}
 			button {
-				box-shadow: 0 0 100px rgba(255,174,0,.4);
+				box-shadow: 0 0 100px $light-orange;
 			}
 		}
 		&-all {
@@ -597,7 +602,7 @@ p {
 			&:after {
 				width: 100%;
 				height: 1px;
-				background: linear-gradient(to right, rgba(255,174,0,.4) 20%, rgba(0,0,0,0) 70%);
+				background: linear-gradient(to right, $light-orange 20%, rgba(0,0,0,0) 70%);
 				content:'';
 				display: block;
 				position:absolute;
@@ -617,7 +622,7 @@ p {
 			}
 
 			.line_bottom {
-				background: linear-gradient(to right, rgba(0,0,0,.1) 30%, rgba(255,174,0,.4));
+				background: linear-gradient(to right, rgba(0,0,0,.1) 30%, $light-orange);
 				bottom: -20px!important;
 			}
 			.line_right {
@@ -655,19 +660,42 @@ p {
 
 		.on_webinar {
 			text-transform: none!important;
-			box-shadow: 0px 0px 100px rgba(255,174,0,.4);
+			box-shadow: 0px 0px 100px $light-orange;
 		}
 	}
 }
 
 .team {
 	height: 1826px;
+	margin-top: -5px;
 	background: url('../img/bg6.jpg') no-repeat center center;
 
 	> h2:first-child {
 		margin-bottom: 0px;
 	}
+	&__text {
+		position: absolute;
+		left: 20%;
+		top: 55%;
+		&-title {
+			color: $white;
+			font-size: 1.5tem;
+			line-height: 1.2!important;
+		}
+		span {
+			font-family: 'Gotham Pro';
+			max-width: 175px;
+			line-height: 1.4;
+			display: inline-block;
+		}
+		> p {
+			margin: 8px 0 0 0;
+			color: #9099b4;
+			line-height: 1.5;	
+		}
+	}
 }
+
 
 footer {
 	height: 90px;
@@ -686,6 +714,163 @@ footer {
 	}
 }
 
+
+.digital_container {
+	.digital_form {
+		width: 1138px;
+		margin-top: 180px;
+		height: 470px;
+		overflow: hidden;
+		padding: 20px 98px;
+		position: relative;
+		background-image: linear-gradient(120deg, #1e293d 55%, rgba(255,174,0,.18));
+
+		> svg {
+			position: absolute;
+			right: -12%;
+			max-width: 700px;
+			top: -38%;
+		}
+		> h3 {
+			font-size: 2rem;
+			margin-bottom: 0;
+		}
+		> p {
+			font-size: 1.04rem;
+			max-width: 431px;
+			margin-bottom: 30px;
+		}
+		> form {
+			max-width: 431px;
+			> input {
+				width: 100%;
+				border: 0;
+				height: 40px;
+				margin: 0 0 9.5px 0;
+				text-align: center;
+			}
+			> input:not([type="submit"]) {
+				background-color: #141b28;
+				color: $light-gray;
+				font-size: 1.1rem;
+				font-family: 'Gotham Pro',sans-serif;
+				&::-webkit-input-placeholder {
+					color: $light-gray;
+				}
+			}
+			> input[type="submit"] {
+				font-size: 1.2rem;
+				color: $dark;
+				cursor: pointer;
+				margin-top: 15px;
+				background: $orange;
+				margin-bottom: 16px;
+
+				&:hover {
+					box-shadow: 0 0 40px $light-orange;
+				}
+				&:active {
+					color: $white;
+				}
+			}
+		}
+		&-this {
+			&-subtext {
+				color: $light-gray;
+				font-size: .8rem;
+				font-family: 'Gotham Pro',sans-serif;
+				> a {
+					display: inline;
+					color: $orange;
+					font-family: inherit;
+					border-bottom: 1px solid $light-orange;
+				}
+			}
+		}
+	} 
+	> img {
+		position: absolute;
+		top: -45px;
+		right: 100px;
+	}
+}
+
+.fransh {
+	margin-top: -2px;
+	background: url('../img/fransh_bg.jpg') no-repeat center center, #161823;
+	height: 1255px;
+	padding-top: 60px;
+
+	.tape {
+		font-size: 1.4rem!important;
+		line-height: 1.4;
+
+		&:before {background-color: #161824;}
+		> b {
+			font-family: 'Roboto Slab',serif;
+		}
+
+		width: 875px;
+		padding-top: 22px;
+		height: 106px;
+		letter-spacing: 1.5px;
+		font-weight: normal;
+		> * {font-size: inherit}
+
+		&__left, &__right {
+			width: 130px;
+			height: 98px;
+			top: 40px;
+		}
+		&__right {
+			right: -65px;
+		}
+		&__left {
+			left: -65px;
+		}
+	}
+
+	&__box {
+		position: relative;
+		margin: -28px auto 0 auto;
+		z-index: 0;
+		max-width: 405px;
+
+		* {
+			margin: 0 auto;
+			display: block;
+		}
+	
+		&:before {
+			width: 90%;
+			height: 90%;
+			max-height: 500px;
+			top: 5%;
+			left: 5%;
+			@extend %before-template;
+			box-shadow: 0 0 1000px $light-orange;
+			z-index: -1;
+		}
+
+		&-price {
+			max-width: 400px;
+			text-align: center;
+			> b {
+				color: $white;
+				@extend %skew;
+				margin: 34px auto;
+				font-size: 2rem;
+			}
+			a {
+				font-size: 1.2rem!important;
+			}
+			> .button_wrap {
+				width: 316px;
+				height: 67px;
+			}
+		}
+	}
+}
 
 /* snippets */
 .bold {
@@ -738,6 +923,72 @@ p.blue_text {
 	@extend %flex-center-in-row;
 }
 
+.tape {
+	width: 520px;
+	height: 72px;
+	color: $white;
+	font-size: 2.2rem;
+	font-family: 'Roboto Slab', serif;
+	margin: -20px auto 85px auto;
+	text-align: center;
+	position: relative;
+	line-height: 1.9;
+	z-index: 5;
+
+	&:before {
+		width: 100%;
+		height: 100%;
+		@extend %before-template;
+		background-color: #142034;
+		border: 3px dashed $orange;
+		z-index: -1;
+		top: 0;
+		left: 0;
+	}
+
+	@mixin rotateBefores($deg) {
+		 transform: rotate($deg+deg);
+	}
+
+	&__left, &__right {
+		position: absolute;
+		border: 3px dashed $orange;
+		width: 100px;
+		height: 72px;
+		display: block;
+		top: 20px;
+		z-index: -5;
+
+		&:before, &:after {
+			@extend %before-template;
+			height: 65%;
+			width: 3px;	
+		}
+		&:before {bottom: -7.5%;}
+		&:after {top: -7.5%;}
+	}
+	&__left {
+		border-left: 0;
+		left: -45px;
+		&:before, &:after {left: 13.5%;border-left: 3px dashed $orange;}
+		&:before {
+			@include rotateBefores(40)
+		}
+		&:after {
+			@include rotateBefores(-40)
+		}
+	}
+	&__right {
+		border-right: 0;
+		right: -45px;
+		&:before, &:after {right: 13.5%;border-right: 3px dashed $orange;}
+
+		&:before{ @include rotateBefores(-40) }
+		&:after { @include rotateBefores(40) }
+	}
+	@extend %skew;
+}
+
 .link_button {
 	cursor: pointer;
 	transform: skewX(-2deg) rotate(-1deg);
@@ -756,7 +1007,7 @@ p.blue_text {
 	color: #252c38;
 
 	&:hover {
-		box-shadow: 0 0 30px rgba(255,174,0,.4);
+		box-shadow: 0 0 30px $light-orange;
 	}
 	svg > path {transition: .5s ease;}
 	&:active {
