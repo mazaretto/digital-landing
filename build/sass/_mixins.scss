@@ -18,6 +18,16 @@
 	flex-direction: column;
 }
 
+%scroll {
+	&::-webkit-scrollbar {
+		width: 5px;
+		background: #252c38;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: $orange;
+	}
+}
+
 %before-template {
 	content:'';
 	display:block;
