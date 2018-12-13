@@ -872,6 +872,44 @@ footer {
 	}
 }
 
+.elephant {
+	height: 1259px;
+	padding-top: 70px;
+	background: url('../img/bg7.jpg') no-repeat center center;
+
+	> .h2_white {
+		max-width: 800px;
+		margin-bottom:0;
+	}
+	> p {
+		font-size: 2rem;
+		color: $light-gray;
+		@extend %skew;
+		text-align: center;
+		margin-bottom: 0px;
+	}
+
+	#elephant {
+		margin: 0 auto;
+		display: block;
+		margin-top: -60px;
+
+		text {
+			user-select: none;
+			fill: #182a40;
+			font-family: 'Gotham Pro Bold',sans-serif;
+		}
+		> g:not(#main_sloy) {
+			cursor: pointer;
+		}
+	}
+}
+
+.prices {
+	 height: 879px;
+	 background: url('../img/bg8.jpg') no-repeat center center;
+}
+
 /* snippets */
 .bold {
 	font-family: 'Gotham Pro Bold',sans-serif!important;
