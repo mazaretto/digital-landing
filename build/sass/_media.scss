@@ -4,16 +4,39 @@ $p_size: .9rem!important;
 	.fransh__box {
 		max-width: 320px!important;
 		img {
-			max-width: 320px;
+			max-width: 300px;
 		}
 		&::before {
 			max-height: 65%!important;
+		}
+	}
+	.fransh {
+		.tape {
+			max-width: 320px!important;
+			height: auto!important;
+			padding: 22px 5px!important;
+			font-size: 1rem!important;
+			&__right, &__left {
+				top: 55%!important;
+			}
 		}
 	}
 }
 @media screen and (max-width: 600px) {
 	.webinar {
 		padding: 70px 0!important;
+		&__mac {
+			max-width: 320px;
+    		max-height: 204px;
+			background-size: contain!important;
+			margin: 15px auto!important;
+			&-image {
+			    width: 219px!important;
+			    height: 123px!important;
+    			left: 16%!important;
+    			top: 4.5%!important;
+			}
+		}
 		&__descr {
 			position: static!important;
 			padding-left: 15px!important;
@@ -26,12 +49,15 @@ $p_size: .9rem!important;
 			}
 		}
 		&__zapis {
-			.link_button {
-				margin-right:0!important;
+			max-width: 333px!important;
+			flex-wrap: wrap!important;
+			> * {
+				min-width:300.43px!important;
+				margin-bottom: 10px!important;
 			}
 		}
 		h2 {
-			font-size: 1.5rem!important
+			font-size: 1.4rem!important
 		}
 	}
 }
@@ -39,6 +65,7 @@ $p_size: .9rem!important;
 	.mobile_show {
 		display:block!important;
 	}
+
 	footer {
 		* {text-align: center }
 	}
@@ -55,7 +82,6 @@ $p_size: .9rem!important;
 	.button_wrap {
 		width: 300px!important;
 		height: 55px!important;
-		margin: 0 auto!important;
 		a,button {
 			width: inherit!important;
 			height: inherit!important;
@@ -64,6 +90,9 @@ $p_size: .9rem!important;
 			width: inherit!important;
 			height: inherit!important;
 		}
+	}
+	.button_wrap:not(.no_wrap) {
+		margin: 0 auto!important;
 	}
 	.elephant {
 		overflow: hidden;
@@ -74,6 +103,7 @@ $p_size: .9rem!important;
 		overflow: visible!important;
 		&__item {
 			margin-top: 200px!important;
+			max-width: 300px!important;
 			img {
 				max-width: 100%;
 				top: -62%!important;
@@ -347,6 +377,9 @@ $p_size: .9rem!important;
 	.m_hidden {
 		display: none!important;
 	}
+	.exp {
+
+	}
 }
 
 @media screen and (min-width: 700px) and (max-width: 993px) {
@@ -354,6 +387,41 @@ $p_size: .9rem!important;
 		margin-top: -30px!important;
 		left: 50%;
 		transform: translateX(-50%);
+	}
+	.fransh {
+		.tape {
+			max-width: 543px;
+		    height: auto!important;
+		    padding: 15px;
+		    * {
+		    	font-size: 1.3rem!important;
+		    }
+		    &__left, &__right {
+		    	top: 60%!important;
+		    }
+		}
+	}
+	.webinar {
+		height: 550px!important;
+		&__descr {
+			left: 0!important;
+			padding-left: 0!important;
+		}
+		> .container > .row {
+			justify-content: flex-end!important;
+		}
+		&__mac {
+			max-width: 400px;
+    		max-height: 244px;
+			background-size: contain!important;
+			margin-right: -60px;
+			&-image {
+			    width: 262px!important;
+			    height: 147px!important;
+			    left: 17.2%!important;
+			    top: 4.5%!important;
+			}
+		}
 	}
 }
 
@@ -380,8 +448,9 @@ $header_size: 1.5rem;
 
 	.knowing {
 		img {
-			max-width: 450px;
-			top: 50px;
+			max-width: 500px;
+			top: 20px!important;
+			right: -130px!important;
 		}
 	}
 	.exp {
@@ -394,13 +463,32 @@ $header_size: 1.5rem;
 	.exp {
 		.star {
 			span:not(.star__item7) {
-				max-width: 200px;
+				max-width: 300px;
 			}
 		}
 	}
 	.forWho__blocks-all {
 		> p {
 			max-width: 400px;
+		}
+	}
+	.webinar {
+		&__mac {
+			background-size: contain!important;
+			width: 493px!important;
+    		height: 493px!important;
+    		&-image {
+			    width: 454px!important;
+			    height: 255px!important;
+			    left: 4%!important;
+			    top: 10.90%!important;
+    		}
+		}
+		&__descr {
+			margin-left: -132px;
+			.h2_white {
+				font-size: 2rem!important;
+			}
 		}
 	}
 }
