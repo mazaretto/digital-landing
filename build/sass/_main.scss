@@ -25,10 +25,7 @@
         right:0; 
     }
     span[class^="item"] { 
-        background: -moz-linear-gradient(left, rgba(255,174,0,1) 0%, rgba(255,174,0,0.98) 1%, rgba(255,174,0,0.05) 40%, rgba(255,174,0,0.05) 50%, rgba(255,174,0,0.05) 60%, rgba(255,174,0,1) 100%); /* FF3.6-15 */ 
-        background: -webkit-linear-gradient(left, rgba(255,174,0,1) 0%,rgba(255,174,0,0.98) 1%,rgba(255,174,0,0.05) 40%,rgba(255,174,0,0.05) 50%,rgba(255,174,0,0.05) 60%,rgba(255,174,0,1) 100%); /* Chrome10-25,Safari5.1-6 */ 
-        background: linear-gradient(to right, rgba(255,174,0,1) 0%,rgba(255,174,0,0.98) 1%,rgba(255,174,0,0.05) 40%,rgba(255,174,0,0.05) 50%,rgba(255,174,0,0.05) 60%,rgba(255,174,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ 
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffae00', endColorstr='#ffae00',GradientType=1 ); /* IE6-9 */ 
+        @extend %background-line;
     } 
     span {display: block;position: absolute;} 
 }
@@ -49,6 +46,17 @@
             margin-right: 35px;
         }
     }
+}
+
+g[class^=gf] {
+    > path {
+        @extend %transition;
+    }
+}
+
+.all_figures {
+    cursor: pointer;
+    @extend %transition;
 }
 
 .plaha { 

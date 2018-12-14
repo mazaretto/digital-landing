@@ -1,9 +1,130 @@
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 991.9px) {
 	footer {
 		text-align: center;
+	}
+	
+	.center_100 {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: auto;
+		position: absolute;
+		> * {
+			position: static!important;
+			margin: 0!important;
+		}
+	}
+
+	.about {
+		padding-bottom: 30%;
+		&__seva {
+			position: static!important;
+			max-width: 100%;
+		}
+		.plaha {
+			position: static;
+			margin: -200px auto 0;
+			max-width: 450px;
+			width: 100%;
+		}
+		.center_100 {
+			bottom: -150px;
+		}
 	}
 
 	.h2_white {
 		font-size: 40px!important;
+	}
+
+	.forWho__blocks-all,
+	.team .col-xl-4 img {
+		margin: 0 auto;
+		display: block;
+	}
+
+	main {
+		section {
+			height: auto!important;
+			box-sizing: content-box;
+		}
+	}
+	.team {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.digital_container {
+		> img {display: none;}
+		.digital_form {
+			padding: 30px;
+			max-width: 100%;
+			height: auto;
+			text-align: center;
+			* {
+				margin-left: auto;
+				margin-right: auto;
+			}
+			> h3 {
+				font-size: 1.5rem;
+			}
+			> svg {
+				top: 0;
+				left: 35%;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	#elephant {
+		display: none!important;
+	}
+}
+
+@media screen and (max-width: 1201px) {
+	.digital_container {
+		.digital_form {
+			max-width: 100%;
+		}
+	}
+}
+
+$header_size: 1.5rem;
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+	.digital_container {
+		img {
+			right:50px!important;
+		}
+		.digital_form {
+			h3 {
+				font-size: $header_size;
+			}
+		}
+	}
+
+	.knowing {
+		img {
+			max-width: 450px;
+			top: 50px;
+		}
+	}
+	.exp {
+		.star {
+			span {
+				font-size: 1.1rem!important;
+			}
+		}
+	}
+	.exp {
+		.star {
+			span:not(.star__item7) {
+				max-width: 200px;
+			}
+		}
+	}
+	.forWho__blocks-all {
+		> p {
+			max-width: 400px;
+		}
 	}
 }
