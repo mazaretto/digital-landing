@@ -4,7 +4,7 @@
   "description": "Template for gulp-pug(jade)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack --watch --minimize"
   },
   "keywords": [
     "m88thems",
@@ -36,5 +36,14 @@
     "gulp-uglify": "^2.0.1",
     "gulp.spritesmith": "^6.3.0",
     "imagemin-pngquant": "^5.0.0"
+  },
+  "dependencies": {
+    "babel-minify-webpack-plugin": "^0.3.1",
+    "jquery": "^3.3.1",
+    "parallax-js": "^3.1.0",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2",
+    "wow.js": "^1.2.2"
   }
 }

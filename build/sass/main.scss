@@ -5,6 +5,7 @@
 @import "_media.scss";
 @import "_mixins.scss";
 @import "_main.scss";
+@import "_animations.scss";
 
 html, body {
 	overflow-x: hidden;
@@ -217,6 +218,7 @@ p {
 			padding-top: 110px;
 			> span {
 				font-size: 1.45rem;
+				display: block!important;
 				color: $orange;
 				position: absolute;
 				margin-top: 20px;
@@ -345,9 +347,65 @@ p {
 	display: none;
 }
 
+.cards {
+	&__item {
+		width: 300px!important;
+		height: 615px!important;
+		background-color: #1e2942;
+		padding: 67px 44px;
+		position: relative;
+		margin: 10px auto;
+
+		* {
+			width: 100%;
+			margin: 0 auto;
+			display: block;
+			text-align: center;
+		}
+
+		&-counter {
+			position: absolute;
+			font-size: 2.5rem;
+			color: #9099b4;
+			font-family: 'Gotham Pro',sans-serif;
+			left: 14px;
+			top: 10px;
+			width: auto!important;
+		}
+		&-img {
+			max-width: 214px;
+		}
+		&-click {
+			border: 0;
+			height: 42px;
+			background: $orange;
+			@extend %transition;
+			border-top: 1px solid #785e28;
+			color: $dark;
+			text-transform: uppercase;
+			&:hover {
+				box-shadow: 0 0 50px $light-orange;
+			}
+			&:active {
+				color: $white;
+			}
+		}
+		&-descr {
+			color: #9099b4;
+			margin-bottom: 23px;
+		}
+		&-head {
+			color: $white;
+			margin: 38px auto 12px auto; 
+			font-size: 1.4rem;
+		}
+	}
+}
+
 .exp {
 	height: 960px;
 	z-index: 0;
+	z-index: 2;
 	margin-top: -5px;
 	padding-top: 5px;
 	position: relative;
@@ -368,7 +426,7 @@ p {
 		width: 100%;
 		text-align: center;
 		user-select: none;
-		transform: skewX(-10deg) rotate(-10deg);
+		// transform: skewX(-10deg) rotate(-10deg);
 		color: #101626;
 		text-shadow: 2px 0px 15px #101626,-2px 0px 15px #101626;
 		font-size: 10rem;
@@ -739,32 +797,41 @@ footer {
 .digital_container { 
 	> img {
 		position: absolute;
-		top: -45px;
+		top: -135px;
 		right: 100px;
 	}
 }
 
+
 .modal_show {
-	opacity: 1;
-	.modals {
-		transform: scale(1);
+	opacity: 1!important;
+	.modals,.background_modal {
+		transform: scale(1)!important;
+		opacity: 1!important;
 	}
 }
-
+.policy_wrapper {z-index:9999!important;}
 .modal_wrapper {
 	position: fixed;
 	top: 0;
+	display: none;
+	cursor: pointer;
+	opacity:0;
 	left: 0;
-	z-index: 9999;
+	z-index: 9000;
 	background: rgba(0,0,0,.5);
 	width: 100%;
 	height: 100%;
-	@extend %flex-center-in-col;
+	@extend %transition;
 
 	.modals {
 		margin: 0;
 		z-index: 0;
 		width: 100%!important;
+		transform: scale(.8);
+		cursor: default;
+		opacity: .5;
+		@extend %transition;
 		.close {
 			color: rgb(144, 153, 180);
 			font-weight: normal;
@@ -781,6 +848,10 @@ footer {
 
 	.background_modal {
 		background: $dark;
+		display: inline-block;
+		transform: scale(.8);
+		opacity: .5;
+		@extend %transition;
 	}
 
 	h3 {
@@ -797,11 +868,21 @@ footer {
 		}
 	}
 }
+#success_modal .modals {
+	max-height: 250px;
+}
+#franshise_modal {
+	h3 {
+		font-size: 1.6rem!important;
+	}
+}
 #callback_modal .modals,
+#franshise_modal .modals,
 #policy_modal .modals {
 	max-width: 573px;
 	height: 520px;
 	text-align: center;
+	z-index: 0;
 	padding-top: 65px;
 	background-image: linear-gradient(-45deg, #1e293d 55%, rgba(255,174,0,.1));
 	svg {
@@ -1004,6 +1085,7 @@ footer {
 			margin: 0 auto;
 			&__item {
 				@extend %WH;
+				@extend %transition;
 				position: absolute;
 				opacity:.5;
 				&-line {
@@ -1103,6 +1185,7 @@ footer {
 	 		position: relative;
 	 		height: 70px;
 	 		margin-left: -40px;
+	 		@extend %transition;
 	 		span {
 	 			display: block;
 	 			background: $orange;

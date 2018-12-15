@@ -9,7 +9,6 @@ var gulp = require('gulp'),
 	pug = require('gulp-pug'),
 	rename = require("gulp-rename"),
 	sass = require('gulp-sass'),
-	sourcemaps = require('gulp-sourcemaps'),
 	concat = require('gulp-concat'),
 	order = require("gulp-order"),
 	uglify = require('gulp-uglify'),
@@ -101,13 +100,11 @@ gulp.task('js:build', function(){
 		.pipe(babel({
 			presets: ['@babel/env']
 		}))
-		.pipe(sourcemaps.init())
     .pipe(gulp.dest(path.build.jsPath))
 		.pipe(uglify())
 		.pipe(rename(function (path) {
 			path.extname = ".min.js"
 		}))
-		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(path.build.jsPath))
 		.on('error', function(err) {
 			console.error('Error in compress task', err.toString());
@@ -115,7 +112,6 @@ gulp.task('js:build', function(){
 });
 gulp.task('jsMain:build', function(){
 	return gulp.src(path.build.jsPath + 'main.js')
-		.pipe(sourcemaps.init())
 		.pipe(babel({
 			presets: ['@babel/env']
 		}))
@@ -123,7 +119,6 @@ gulp.task('jsMain:build', function(){
 		.pipe(rename(function (path) {
 			path.extname = ".min.js"
 		}))
-		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(path.build.jsPath))
 		.on('error', function(err) {
 			console.error('Error in compress task', err.toString());
@@ -133,16 +128,13 @@ gulp.task('jsMain:build', function(){
 // ===========================================
 gulp.task('sass:build', function () {
 	return gulp.src(path.build.sass)
-		.pipe(sourcemaps.init())
 		.pipe(sass().on("error", notify.onError()))
 		.pipe(autoprefixer(['last 20 versions', '> 1%', 'ie > 8']))
 		.pipe(rename(function (path) {
 			path.extname = ".css"
 		}))
-		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(path.build.cssPath))
 		.pipe(cleanCSS())
-		.pipe(sourcemaps.write())
 		.pipe(rename(function (path) {
 			path.extname = ".min.css"
 		}))
