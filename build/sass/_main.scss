@@ -72,12 +72,6 @@ g[class^=gf] {
         height: 100%;
         position: absolute;
     }
-    .skew_rect.last {
-        animation: skewRectLast 2s ease 1 alternate forwards;
-    }
-    .skew_rect.second {
-        animation: skewRectSecond 2s ease 1 alternate forwards;
-    }
 
     > p {
         text-align: center;
@@ -86,28 +80,5 @@ g[class^=gf] {
         opacity: 0;
         transform: scale(.5);
         animation: skewRectVisible 2s ease 1 alternate forwards;
-    }
-}
-
-@keyframes skewRectLast {
-    to {
-        margin-top: -32px;
-        margin-left: 32px;
-        opacity: .1;
-    }
-}
-
-@keyframes skewRectSecond {
-    to {
-        margin-top: -16px;
-        margin-left: 16px;
-        opacity: .4;
-    }
-}
-
-@keyframes skewRectVisible {
-    to {
-        transform: scale(1);
-        opacity: 1;
     }
 }

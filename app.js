@@ -14,12 +14,8 @@ import LIBS from "./libs/lib.js"
 
 	const DigitalModal = {
 		prefix: 'data-modal',
-		items: null,
 		timeClose: 400,
-		initItems (callback) {
-			this.items = $(`*[${this.prefix}]`)
-			callback(this.items)
-		},
+		modals: [],
 		isModalOpen (modal) {
 			return modal.hasClass('modal_show')
 		},
@@ -27,48 +23,60 @@ import LIBS from "./libs/lib.js"
 			$('html,body').css({'overflow':'hidden'})
 			modal.attr('style','display:flex;justify-content:center;align-items:center;!important')
 			setTimeout(() => { modal.addClass('modal_show') }, this.timeClose)
-
+			this.modals.push(modal)
 			this.modalOptions(modal)
 		},
 		modalOptions (modal) {
-			modal.find('.close').click(() => {
-				this.modalClose(modal)
-			})
-			modal.click(e => {
-				try {
-					if(e.target.className.indexOf('modal_wrapper') > -1) this.modalClose(modal)
-				} catch (e) {}
-			})
-			$('body').keyup(e => {
-			    if(e.keyCode === 27) {
-			    	e.preventDefault()
+			let last = this.modals[this.modals.length-1]
 
-			    	let modals = $('.modal_show')
-			    	if(modals.length > 1) {
-			    		this.modalClose(modals.eq(-1))
-			    	} else {
-			    		this.modalClose(modal)
-			    	}
-			    }
-			});
+			last.find('.close').click(e => {
+				this.modalClose(last)
+				return 
+			})
+			last.click(e => {
+				try {
+					if(e.target.className.indexOf('modal_wrapper') > -1) {
+						this.modalClose(last)
+					}
+				} catch (e) {}
+				return 
+			})
+			document.body.onkeyup = e => {
+				if(e.keyCode == 27) {
+					let lastModal = this.modals[this.modals.length-1]
+					this.modalClose(lastModal, modals => {
+						console.log(modals.length)
+						if(modals.length <= 0) document.body.onkeyup = null
+					})
+				}
+			}
+			return 
 		},
-		modalClose (modal) {
-			modal.removeClass('modal_show')
-			setTimeout(() => { modal.attr('style','') }, this.timeClose)
-			if($('.modal_show').length <= 0) {$('html,body').attr('style','')}
+		modalClose (last,callback) {
+			return new Promise(resolve => {
+				last.removeClass('modal_show')
+				setTimeout(() => { 
+					last.attr('style','')
+					resolve()
+				}, this.timeClose)
+			}).then(() => {
+				if($('.modal_show').length <= 0) {$('html,body').attr('style','')}
+				this.modals.pop()
+				if(callback) callback(this.modals)
+			})
 		},
 		init () {
-			this.initItems(items => {
-				items.click(e => {
-					e.preventDefault()
-					let getModal = e.target.getAttribute(this.prefix)
-					let currentModal = $(getModal)
-					if(!this.isModalOpen(currentModal)) {
-						this.modalOpen(currentModal)
-					} else {
-						this.modalClose(currentModal)
-					}
-				})
+			$(`*[${this.prefix}]`).click(e => {
+				e.preventDefault()
+				let getModal = e.target.getAttribute(this.prefix)
+				let currentModal = $(getModal)
+				if(!this.isModalOpen(currentModal)) {
+					this.modalOpen(currentModal)
+				} else {
+					this.modalClose(currentModal)
+				}
+
+				return
 			})
 		}
 	}
