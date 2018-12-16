@@ -216,6 +216,47 @@ p {
 			position: relative;
 			z-index: 0;
 			padding-top: 110px;
+			> p {
+				position: relative;
+			}
+			> p:not(.blue_text) {
+				&:before {
+					@extend %before-template;
+					width: 121px;
+					top: -100px;
+					height: 100px;
+					background: url('../img/icons/sprite_icons.png') no-repeat;
+					background-position: 0px 0px;
+					left: -5px;
+				}
+			}
+			&-item1 {
+				&:before {
+					background-position: -10px -12px!important;
+				}
+			}
+			&-item2 {
+				&:before {
+					background-position: -15px -501px!important;
+				}
+			}
+			&-item3 {
+				&:before {
+					background-position: -15px -137px!important;
+				}
+			}
+			&-item4 {
+				&:before {
+					background-position: -15px -388px!important;
+				}
+			}
+			&-item5 {
+				&:before {
+					background-position: -7.5px -253px!important;
+					height: 120px!important;
+					top: -125px!important;
+				}
+			}
 			> span {
 				font-size: 1.45rem;
 				display: block!important;
@@ -237,6 +278,7 @@ p {
 				position: absolute;
 				width: 100%;
 				z-index: -1;
+				margin-top: 40px;
 			}
 
 			background-size: 100% 100%!important;
@@ -247,19 +289,19 @@ p {
 		}
 		.block2 {
 			@include setWH(417px,269px);
-			> img {left: 13px; top: -10px;}
+			> img {left: 13px; top: 10px;}
 		}
 		.block3 {
 			@include setWH(423px,286px);
-			> img {left: 13px; top: 0;}
+			> img {left: 13px; top: 40px;}
 		}
 		.block4 {
 			@include setWH(402px,270px);
-			> img {left: 15px; top: 5px;}
+			> img {left: 15px; top: -10px;}
 		}
 		.block5 {
 			@include setWH(401px,281px);
-			> img {left: 18px; top: -25px;}
+			> img {left: 18px; top: 25px;}
 		}
 	}
 }
@@ -432,6 +474,10 @@ p {
 		color: #101626;
 		text-shadow: 2px 0px 15px #101626,-2px 0px 15px #101626;
 		font-size: 10rem;
+		span {
+			@extend %skew;
+			display: block!important;
+		}
 	}
 	.heading_title {
 		color: $white;
@@ -574,7 +620,7 @@ p {
 		&-image {
 			width: 562px;
 			height: 315px;
-			background: #333;
+			background: url('../img/webinar_seva.png') no-repeat center center;
 			background-size: cover!important;
 			position:absolute;
 			left: 6%;
@@ -1180,55 +1226,120 @@ footer {
 	height: 1051px;
 	position: relative;
 }
+.boxes_show {
+	opacity: 1!important;
+}
+$box_height: 200;
 .boxes {
 	width: 147px;
-	height: 200px;
+	height: $box_height+px;
 	background-color: #263454;
 	z-index: 100;
 	position: absolute;
 	box-shadow: 0 0 20px #263454;
+	display: none;
+	@extend %transition;
+	img {
+		max-width: 75%;
+	}
+
+	&:after {
+		width: 90px;
+		height: 80px;
+		@extend %before-template;
+		background: url('../img/sprite_line.png') no-repeat;
+		background-position: 0px 0px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
 }
+
+
+@mixin afterPos($x,$y,$height,$auto,$left: 50%) {
+	&:after {
+		background-position: $x+px $y+px;
+		height: $height+px!important;
+		
+		@if $left {
+			left: $left!important;
+		}
+
+		@if $auto == true {
+			top: -$height/1.5+px!important;
+		} @else {
+			top: 90%!important;
+		}
+	}
+}
+
 .box_1 {
 	top: 58%;
-    left: 28%;
+    left: 29.5%;
+    $auto:true;
+    @include afterPos(35,-376,50,$auto);
 }
 .box_8 {
 	left: 19%;
     top: 82%;
+    $auto: true;
+    @include afterPos(0,-465,48,$auto,76%);
+}
+.box_2 {
+	left: 16%;
+	$auto:false;
+	@include afterPos(40,-83,70,$auto);
 }
 .box_3 {
     left: 31%;
+    $auto:false;
+    @include afterPos(0,-152,99,$auto,80%);
 }
 .box_4 {
 	left: 46%;
+	$auto:false;
+    @include afterPos(0,-250,78,$auto,77%);
 }
 .box_5 {
-	top: -5%;
-    left: 63%;
+	top: -4%;
+    left: 61%;
+    $auto:false;
+    @include afterPos(0,-326,52,$auto,77%);
 }
 .box_6 {
-    left: 90%;
-    top: 9%;
+    left: 88%;
+    top: 10%;
+    $auto: false;
+    @include afterPos(0,-653,68,$auto,25%);
 }
 .box_7 {
     left: 53%;
     top: 65%;
+    $auto: true;
+    @include afterPos(0,-561,48,$auto,76%);
 }
 .box_9 {
-    top: 12%;
+    top: 14%;
     left: -2%;
+    $auto:false;
+    @include afterPos(5,0,87,$auto,75%);
 }
 .box_10 {
 	top: 75%;
     left: -2%;
+    $auto: true;
+    @include afterPos(0,-428,40,$auto,83%);
 }
 .box_11 {
     top: 82%;
     left: 39%;
+	$auto: true;
+    @include afterPos(0,-465,48,$auto,76%);
 }
 .box_12 {
-    left: 71%;
-    top: 43%;
+    left: 73%;
+    top: 45%;
+    $auto: false;
+    @include afterPos(0,-612,37,$auto,80%);
 }
 
 .prices {
@@ -1449,11 +1560,11 @@ p.blue_text {
 
 		&:before, &:after {
 			@extend %before-template;
-			height: 65%;
+			height: 68%;
 			width: 3px;	
 		}
-		&:before {bottom: -7.5%;}
-		&:after {top: -7.5%;}
+		&:before {bottom: -9.4%;}
+		&:after {top: -9%;}
 	}
 	&__left {
 		border-left: 0;
@@ -1471,7 +1582,7 @@ p.blue_text {
 		right: -45px;
 		&:before, &:after {right: 13.5%;border-right: 3px dashed $orange;}
 
-		&:before{ @include rotateBefores(-40) }
+		&:before{ @include rotateBefores(-39) }
 		&:after { @include rotateBefores(40) }
 	}
 	@extend %skew;
@@ -1689,8 +1800,4 @@ g[class^="gf"] {
 	position: absolute;
 	bottom: 0;
 	left:0;
-}
-
-.mobile_show {
-	display: none;
 }

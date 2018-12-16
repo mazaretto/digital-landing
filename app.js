@@ -18,6 +18,57 @@ import LIBS from "./libs/lib.js"
 	    }, 1000);
 	});
 
+	function initWebinar () {
+		// Set the date we're counting down to
+		var countDownDate = new Date("2018.12.16 20:19").getTime();
+		var lengthHours = 0,	
+			mins = 8;
+
+		// Update the count down every 1 second
+		var Webinar = setInterval(function() {
+
+		  // Get todays date and time
+		  var now = new Date().getTime();
+
+		  // Find the distance between now and the count down date
+		  var distance = countDownDate - now;
+
+		  // Time calculations for days, hours, minutes and seconds
+		  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+	  	  (seconds < 10) ? seconds = '0'+seconds : seconds;
+	 	  (minutes < 10) ? minutes = '0'+minutes : minutes;
+	  	  (hours < 10) ? hours = '0'+hours : hours;
+	  	  (days < 10) ? days = '0'+days : days
+		  if(days == 0 && hours == 0) {
+		  	$('.timer').html(`${minutes}:${seconds}`)
+		  } else if(days == 0 && hours != 0) {
+		  	$('.timer').html(`${hours}:${minutes}:${seconds}`)
+		  } else {
+		  	$('.timer').html(`${days}:${hours}:${minutes}:${seconds}`)
+		  }
+		  // If the count down is finished, write some text 
+		  if (distance < 0) {
+		  	let n = new Date().getTime()
+		  	let dist = n - countDownDate
+		  	let h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+		  	let m = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+		  	let msg = '';
+		  	if(h >= lengthHours && m >= mins) {
+		  		msg = 'ПРОШЕЛ';
+		  		clearInterval(Webinar)
+		  	} else {
+		  		msg = 'В ЭФИРЕ';
+		  	}
+
+		  	$('.timer').html(msg)
+		  }
+		}, 1000);
+	}
+
+
 	const Elephant = {
 		clickColor: '#EAA000',
 		hoverColor: '#ffc13b',
@@ -25,29 +76,35 @@ import LIBS from "./libs/lib.js"
 		figures: $('.all_figures'),
 		hover () {
 			this.figures.mouseover(e => {
-				if(!e.relatedTarget.id.indexOf('fig')) {
-					$('#top_style').html(`${e.target.getAttribute('data-figure')}{filter: url(#shadow)}`)
+				if(!e.relatedTarget.id.indexOf('fig') || e.target.getAttribute('data-figure')) {
+					$('#top_style').html('')
 				} 
 			})
 			$('g[class^="gf"]').hover(e => {
-				$('#top_style').html(`*[data-figure="#${e.target.id}"]{filter: url(#shadow)}`)
+				let f = e.target.id
+				let newFig = f.replace(/fig/,'')
+				let box = `#box${newFig}`
+				let elem = $(box)
+				elem.html(`<img src="${elem.attr('data-img')}" />`)
+				$('#top_style').html(`*[data-figure="#${f}"] {filter: url(#shadow)} ${box} {display:flex;justify-content:center;align-items:center;`)
 			})
 			this.figures.mouseleave(e => {
 				if(e.relatedTarget.id === '') {
 					e.target.style = ''
+					$('#top_style').html('')
 					this.fillFigure(e.target,this.defaultColor)
 				}
 			})
-		},
-		active() {
-
 		},
 		fillFigure (fig,color) {
 			return fig.setAttribute('fill',color)
 		},
 		init () {
 			this.hover()
-			this.active()
+
+			$('#elephant g[class^="gf"]').each(function () {
+				$(this).find('text').attr('data-modal',$(this).attr('data-modal')).attr('data-opts',$(this).attr('data-opts'))
+			})
 		}
 	}
 
@@ -67,7 +124,7 @@ import LIBS from "./libs/lib.js"
 			this.currentVideoPlay = '?autoplay=1'
 			let videoUrl = 'https://www.youtube.com/embed/' + this.currentVideo + this.currentVideoPlay
 
-			modal.find('.modals').append(`<iframe width="90%" height="90%" src="${videoUrl}" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
+			modal.find('.modals').html(`<span class="close">X</span><iframe width="90%" height="90%" src="${videoUrl}" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
 		},
 		stopVideo (modal) {
 			modal.find('iframe').remove()
@@ -249,7 +306,7 @@ import LIBS from "./libs/lib.js"
 		$(window).scroll(function () {
 			let wH = window.innerHeight,
 				sY = window.scrollY,
-				offsetTopEl = wH+sY-1;
+				offsetTopEl = (wH+sY-1 > 10000) ? 10000 : wH+sY-1;
 			el.css({'top':`${offsetTopEl}px`})
 
 			checkBlockPoisition(offsetTopEl)
@@ -291,7 +348,8 @@ import LIBS from "./libs/lib.js"
 		// wow animation
 		new WOW().init()
 		// checking scroller (DOM is .bottom_scrolling_checker)
-		Scroller()
+		if(location.href.indexOf('webinar.html') > -1) {}
+		else Scroller()
 		// submit forms
 		submittingForms()
 		// other libs load
@@ -306,6 +364,8 @@ import LIBS from "./libs/lib.js"
 		Elephant.init()
 		// initCards on tablet and mobile devices
 		initCards()
+		//
+		initWebinar()
 	}
 
 	initPlugins()

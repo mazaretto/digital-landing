@@ -28,8 +28,8 @@ $p_size: .9rem!important;
 			max-width: 360px!important;
 			width: 360px!important;
 			.close {
-				right: 15px;
-   				top: 2px;
+				right: 9px;
+   				top: 6px;
 			} 
 		}
 	}
@@ -171,6 +171,10 @@ $p_size: .9rem!important;
 }
 @media screen and (min-width: 991px) {
 	.cards {display:none!important;}
+	.mobile_show {
+		display: none!important;
+		visibility: hidden!important;
+	}
 }
 @media screen and (min-width: 766px) and (max-width: 990px) {
 	.modals-up {
@@ -182,6 +186,11 @@ $p_size: .9rem!important;
 @media screen and (max-width: 991.9px) {
 	.clock1 {
 		display: none!important;
+	}
+	.mobile_hide {
+		display: none!important;
+		visibility: hidden!important;
+		position: absolute!important;
 	}
 	.modals-up {
 		width: 360px!important;
@@ -720,8 +729,13 @@ $header_size: 1.5rem;
 			}
 		}
 	}
+	.boxes {
+		width: 117px!important;
+    	height: 150px!important;
+	}
 	.elephant_container {
 		width: 850px!important;
+		height: 809px!important;
 	}
     #elephant {
     	max-width: 850px;
