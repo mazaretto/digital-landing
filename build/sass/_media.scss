@@ -21,6 +21,30 @@ $p_size: .9rem!important;
 			}
 		}
 	}
+	#video_modal {
+		.modals {
+			min-width: 360px!important;
+			max-height: 350px;
+			max-width: 360px!important;
+			width: 360px!important;
+			.close {
+				right: 15px;
+   				top: 2px;
+			} 
+		}
+	}
+}
+@media screen and (min-width: 481px) and (max-width: 992.1px) {
+	#video_modal {
+		.modals {
+			min-width: 500px!important;
+			max-height: 400px;
+			.close {
+				right: 5px;
+   				top: 2px;
+			} 
+		}
+	}
 }
 @media screen and (max-width: 330px) {
 	.star_right {
@@ -52,7 +76,33 @@ $p_size: .9rem!important;
 		max-width: 250px!important;
 	}
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1141px) {
+	.webinar_wrapper {
+		.background_modal {
+			width: 100%;
+			height: auto!important;
+		}
+		.modals {
+			max-width: 100%!important;
+			min-width: 100%!important;
+		}
+	}
+}
+@media screen and (max-width: 700px) {
+	.modal_wrapper {
+		.modals {
+			padding: 15px!important;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+	}
+	.responsive_field {
+		input {
+			font-size: 1.1rem!important;
+		}
+	}
 	.webinar {
 		padding: 70px 0!important;
 		&__mac {
@@ -91,9 +141,82 @@ $p_size: .9rem!important;
 		}
 	}
 }
+@media screen and (max-width: 765px) {
+	.modals-up {
+		position: relative!important;
+		left:0!important;
+		top:0px!important;
+	}
+	.webinar_wrapper {
+		overflow-y: auto!important;
+		overflow-x: hidden!important;
+		.modals {
+			height: auto!important;
+			&-descr {
+				padding-top: 0!important;
+			}
+		}
+
+		&::-webkit-scrollbar {
+			width: 5px;
+			background: #252c38;
+		}
+		&::-webkit-scrollbar-thumb {
+			background: $orange;
+		}
+		li {
+			font-size: 1rem!important;
+		}
+	}
+}
+@media screen and (min-width: 991px) {
+	.cards {display:none!important;}
+}
+@media screen and (min-width: 766px) and (max-width: 990px) {
+	.modals-up {
+		position: relative!important;
+		left:0!important;
+		top:0px!important;
+	}
+}
 @media screen and (max-width: 991.9px) {
 	.clock1 {
 		display: none!important;
+	}
+	.modals-up {
+		width: 360px!important;
+		display: flex;
+		margin: 30px auto!important;
+		justify-content: center;
+		img {
+			width: 250px!important;
+		    left: 54px!important;
+		    top: -5px!important;
+		}
+		.svg_item {
+			svg {
+				width: 360px!important;
+			}
+		}
+	}	
+	.modals-descr {
+		padding-left: 0!important;
+		max-width: 480px;
+		margin: 0 auto!important;
+	}
+
+	.modal_wrapper {
+		.modals {
+			> svg {
+				top: 0!important;
+				width: 100%!important;
+				right:0!important;
+			}
+		}
+	}
+
+	h3.orange_text {
+		text-align: center!important;
 	}
 	.clock3 {
 		margin-top: -400px;
@@ -215,8 +338,15 @@ $p_size: .9rem!important;
 		overflow: hidden;
 	}
 	// prices
+	.fransh {
+		background: url('../img/bg5_mobile.png') no-repeat center top!important;
+		background-size: 100% 100%!important;
+	}
 	.prices {
+		background: url('../img/bg2_mobile.png') no-repeat center top!important;
+		background-size: 100% 100%!important;
 		overflow: visible!important;
+		padding-top: 30px;
 		&__item {
 			margin-top: 200px!important;
 			max-width: 300px!important;
@@ -225,6 +355,9 @@ $p_size: .9rem!important;
 				top: -62%!important;
 				left: 0px!important;
 			}
+		}
+		h2 {
+			margin-bottom: 30px!important;
 		}
 	}
 	// end prices
@@ -509,7 +642,8 @@ $p_size: .9rem!important;
 
 	.elephant {
 		background: url('../img/bg5_mobile.png') no-repeat center center!important;
-		background-size: 100% 100%!important;
+		background-size: cover!important;
+		margin-top: -2px;
 	}
 
 	#elephant,

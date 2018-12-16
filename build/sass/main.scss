@@ -348,6 +348,7 @@ p {
 }
 
 .cards {
+	padding: 0!important;
 	&__item {
 		width: 300px!important;
 		height: 615px!important;
@@ -382,6 +383,7 @@ p {
 			@extend %transition;
 			border-top: 1px solid #785e28;
 			color: $dark;
+			cursor: pointer;
 			text-transform: uppercase;
 			&:hover {
 				box-shadow: 0 0 50px $light-orange;
@@ -810,6 +812,14 @@ footer {
 		opacity: 1!important;
 	}
 }
+#video_modal {
+	.modals {
+		min-width: 800px;
+		background: url('../img/webinar_form.png');
+		height: 500px;
+		background-size: cover!important;
+	}
+}
 .policy_wrapper {z-index:9999!important;}
 .modal_wrapper {
 	position: fixed;
@@ -841,6 +851,7 @@ footer {
 			position: absolute;
 			right: 20px;
 			top: 20px;
+			z-index: 9000;
 			cursor: pointer;
 			display: block;
 		}
@@ -891,19 +902,19 @@ footer {
 		height: 103%;
 		top: -1.5%;
 	}
+}
 
-	.responsive_field {
-		a {
-			float:left;
-			width: 20%;
-			height: 40px;
-			margin-top: 15px;
-			transform: skew(0deg);
-		}
-		input[type="submit"] {
-			max-width: 77%;
-			margin-left: 3%;
-		}
+.responsive_field {
+	a {
+		float:left;
+		width: 20%;
+		height: 40px;
+		margin-top: 15px;
+		transform: skew(0deg);
+	}
+	input[type="submit"] {
+		max-width: 77%;
+		margin-left: 3%;
 	}
 }
 
@@ -1407,6 +1418,126 @@ p.blue_text {
 		&:after { @include rotateBefores(40) }
 	}
 	@extend %skew;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.svg_item {
+	margin-top: 0px;
+}
+.webinar_wrapper {
+	.modals {
+		min-width: 1181px;
+		height: auto;
+		background: url('../img/webinar_form.png') no-repeat center center!important;
+		background-size: cover!important;
+		&-descr {
+			width: 95%;
+			height: 100%;
+			padding: 50px 10px;
+			padding-left: 30px;
+			> p {
+				color: $light-gray;
+				max-width: 500px;
+				margin: 20px 0!important;
+			}
+			> form {
+				max-width: 431px;
+				text-align: center;
+				input {
+					width: 100%;
+					border: 0;
+					height: 40px;
+					margin: 0 0 9.5px 0;
+					text-align: center;
+				}
+				input:not([type="submit"]) {
+					background-color: #141b28;
+					color: $light-gray;
+					font-size: 1.1rem;
+					font-family: 'Gotham Pro',sans-serif;
+					&::-webkit-input-placeholder {
+						color: $light-gray;
+					}
+				}
+				input[type="submit"] {
+					font-size: 1.2rem;
+					color: $dark;
+					cursor: pointer;
+					margin-top: 15px;
+					background: $orange;
+					margin-bottom: 16px;
+
+					&:hover {
+						box-shadow: 0 0 40px $light-orange;
+					}
+					&:active {
+						color: $white;
+					}
+				}
+			}
+			h3 {
+				margin-bottom: 15px!important;
+				text-align: left!important;
+			}
+			ul {
+				line-height: 1.8;
+			}
+			li {
+				color: $white;
+				margin-left: 20px;
+				font-size: 1.2rem;
+				position: relative;
+				&:before {
+					width: 10px;
+					height: 10px;
+					display: block;
+					content: '';
+					position: absolute;
+					border-radius: 50%;
+					border: 2px solid $orange;
+					top: 40%;
+					left: -20px;
+				}
+			}
+		}
+		&-up {	
+			max-width: 500px;
+			width: 100%;
+			position: absolute;
+			top: 52.5px;
+			left: 63.5px;
+			> #box_modal {
+				z-index: 1;
+				width: 323px;
+				position: absolute;
+				left: 89px;
+    			top: 40px;
+			}
+			svg {
+				max-width: 500px!important;
+				.cls-2 {
+					stroke-opacity: .8!important;
+					stroke-width: .5!important;
+				}
+			}
+		}
+	}
+}
+g[class^="gf"] {
+	&:hover {
+		> path {
+			fill: #ffc13b!important;
+		}
+	}
+	&:active {
+		> path {
+			fill: #EAA000!important;
+		}
+	}
 }
 
 .link_button {

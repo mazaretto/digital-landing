@@ -34,14 +34,23 @@
     width: 285px;
     height: 90px;
     position: absolute;
+    cursor: pointer;
     left: -20px;
     margin-top: 200px;
     transform: skewX(-5deg) rotate(-4deg);
     .item1,.item3 {height: 2px;}
     .item2,.item4 {width: 2px;}
-
+    &:hover {
+        .link_button {box-shadow: 0 0 30px $light-orange;}
+    }
+    &:active {
+        .link_button svg > path {
+            fill: $white;
+        }
+    }
     p {
         font-size: 1.8rem;
+        cursor: pointer;
         .link_button {
             margin-right: 35px;
         }
