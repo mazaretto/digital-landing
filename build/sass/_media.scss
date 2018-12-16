@@ -191,7 +191,7 @@ $p_size: .9rem!important;
 		img {
 			width: 250px!important;
 		    left: 54px!important;
-		    top: -5px!important;
+		    top: 19px!important;
 		}
 		.svg_item {
 			svg {
@@ -647,6 +647,7 @@ $p_size: .9rem!important;
 	}
 
 	#elephant,
+	.elephant_container,
 	.exp__speed,
 	.m_hidden {
 		display: none!important;
@@ -718,6 +719,9 @@ $header_size: 1.5rem;
 				font-size: $header_size;
 			}
 		}
+	}
+	.elephant_container {
+		width: 850px!important;
 	}
     #elephant {
     	max-width: 850px;

@@ -214,7 +214,7 @@ import LIBS from "./libs/lib.js"
 					{name: 'Франшиза', descr: 'Специалист по<br/>контекстной рекламе', img: 'fransh.png'},
 				).map((item,i) => {
 					return `<div class="col-sm-6 col-lg-6 col-md-4 col-xs-6">
-								<div class="cards__item">
+								<div class="cards__item" id="cards__item${i+1}">
 									<span class="cards__item-counter">${i+1}</span>
 									<img src="img/boxes/${item.img}" class="cards__item-img" alt="" />
 									<strong class="cards__item-head">${item.name}</strong>

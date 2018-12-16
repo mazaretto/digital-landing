@@ -398,7 +398,7 @@ p {
 		}
 		&-head {
 			color: $white;
-			margin: 38px auto 12px auto; 
+			margin: 38px auto 16px auto; 
 			font-size: 1.4rem;
 		}
 	}
@@ -1161,6 +1161,7 @@ footer {
 	#elephant {
 		margin: 0 auto;
 		display: block;
+		position: relative;
 		margin-top: -60px;
 
 		text {
@@ -1172,6 +1173,62 @@ footer {
 			cursor: pointer;
 		}
 	}
+}
+.elephant_container {
+	width: 1100px;
+	margin: 0 auto;
+	height: 1051px;
+	position: relative;
+}
+.boxes {
+	width: 147px;
+	height: 200px;
+	background-color: #263454;
+	z-index: 100;
+	position: absolute;
+	box-shadow: 0 0 20px #263454;
+}
+.box_1 {
+	top: 58%;
+    left: 28%;
+}
+.box_8 {
+	left: 19%;
+    top: 82%;
+}
+.box_3 {
+    left: 31%;
+}
+.box_4 {
+	left: 46%;
+}
+.box_5 {
+	top: -5%;
+    left: 63%;
+}
+.box_6 {
+    left: 90%;
+    top: 9%;
+}
+.box_7 {
+    left: 53%;
+    top: 65%;
+}
+.box_9 {
+    top: 12%;
+    left: -2%;
+}
+.box_10 {
+	top: 75%;
+    left: -2%;
+}
+.box_11 {
+    top: 82%;
+    left: 39%;
+}
+.box_12 {
+    left: 71%;
+    top: 43%;
 }
 
 .prices {
