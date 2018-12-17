@@ -18,11 +18,11 @@ import LIBS from "./libs/lib.js"
 	    }, 1000);
 	});
 
-	function initWebinar () {
+	function initWebinar (dd,hh,mm) {
 		// Set the date we're counting down to
-		var countDownDate = new Date("2018.12.16 20:19").getTime();
-		var lengthHours = 0,	
-			mins = 8;
+		var countDownDate = new Date(dd).getTime();
+		var lengthHours = hh,	
+			mins = mm;
 
 		// Update the count down every 1 second
 		var Webinar = setInterval(function() {
@@ -68,6 +68,29 @@ import LIBS from "./libs/lib.js"
 		}, 1000);
 	}
 
+	const WebinarObj = {
+		data: null,
+		getData () {
+			$.ajax({
+				url: API_URL + 'api.php',
+				method: "GET" 
+			}).done(data => {
+				this.data = data
+				this.initData()
+			})
+		},
+		initData() {
+			const date = this.data.date.split(' ')
+			const reverseDate = date[0].split('.').reverse()
+			const stringDate = reverseDate.join('.') + ' ' + date[1]
+
+			initWebinar(stringDate,parseInt(this.data.hours),parseInt(this.data.minutes))
+			$('.webinar__mac-image').attr('style',`background: url("${this.data.img}")`);
+			$('.webinar__zapis a').attr('href',this.data.link)
+			$('.webinar__descr-name').html(`"${this.data.name}"`).attr('data-placeholder',`"${this.data.name}"`)
+		}
+	}
+	WebinarObj.getData()
 
 	const Elephant = {
 		clickColor: '#EAA000',
@@ -80,7 +103,7 @@ import LIBS from "./libs/lib.js"
 					$('#top_style').html('')
 				} 
 			})
-			$('g[class^="gf"]').hover(e => {
+			$('g[class^="gf"], text').hover(e => {
 				let f = e.target.id
 				let newFig = f.replace(/fig/,'')
 				let box = `#box${newFig}`
@@ -290,14 +313,32 @@ import LIBS from "./libs/lib.js"
 		// digital_form_submit (not modal)
 		$('.modal_wrapper form').submit(function (e) {
 			e.preventDefault()
-			DigitalModal.allClose()
-			DigitalModal.clearInputs($(this))
-			DigitalModal.modalOpen($($(this).attr('data-success')))
+			let $ser = $(this).serialize()
+			$.ajax({
+				method: $(this).attr('method'),
+				url: API_URL + 'sendler.php',
+				data: $ser
+			}).done(data => {
+				console.log(data)
+
+				DigitalModal.allClose()
+				DigitalModal.clearInputs($(this))
+				DigitalModal.modalOpen($($(this).attr('data-success')))
+			})
 		})	
 		$('section form').submit(function (e) {
 			e.preventDefault()
 			DigitalModal.modalOpen($($(this).attr('data-success')))
-			$(this).find('input:not([type="submit"])').val('')
+			let $ser = $(this).serialize()
+			$.ajax({
+				method: $(this).attr('method'),
+				url: API_URL + 'sendler.php',
+				data: $ser
+			}).done(data => {
+				console.log(data)
+
+				$(this).find('input:not([type="submit"])').val('')
+			})
 		})
 	}
 
@@ -364,8 +405,6 @@ import LIBS from "./libs/lib.js"
 		Elephant.init()
 		// initCards on tablet and mobile devices
 		initCards()
-		//
-		initWebinar()
 	}
 
 	initPlugins()
