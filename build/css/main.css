@@ -2983,7 +2983,10 @@ html {
     width: 360px !important; }
     #video_modal .modals .close {
       right: 9px;
-      top: 6px; } }
+      top: 6px; }
+  .forWho {
+    background: url("../img/bg2_mobile.png") no-repeat center top !important;
+    background-size: cover !important; } }
 
 @media screen and (min-width: 481px) and (max-width: 992.1px) {
   #video_modal .modals {
@@ -2991,7 +2994,28 @@ html {
     max-height: 400px; }
     #video_modal .modals .close {
       right: 5px;
-      top: 2px; } }
+      top: 2px; }
+  .forWho {
+    background: #0e101c !important; } }
+
+@media screen and (max-width: 370px) {
+  .team__item img {
+    margin: 0 21px !important; }
+  .team__text {
+    left: 72px !important; }
+  .exp {
+    min-height: 1600px !important; }
+  a, button {
+    max-width: 100% !important; }
+  input[type="submit"] {
+    font-size: 1rem !important; }
+  .webinar__zapis a.link_button {
+    min-width: 273px !important; }
+  .button_wrap, .webinar__zapis a.link_button {
+    width: 273px !important;
+    max-width: 273px !important; }
+    .button_wrap *, .webinar__zapis a.link_button * {
+      font-size: 1rem !important; } }
 
 @media screen and (max-width: 330px) {
   .star_right {
@@ -3043,6 +3067,12 @@ html {
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column; }
+  .show-mobile {
+    display: block !important; }
+  .hide-mobile {
+    display: none !important; }
+  .plaha {
+    right: 0 !important; }
   .responsive_field input {
     font-size: 1.1rem !important; }
   .webinar {
@@ -3051,7 +3081,7 @@ html {
       max-width: 320px;
       max-height: 204px;
       background-size: contain !important;
-      margin: 15px auto !important; }
+      margin: 30px 0px 0px 0px !important; }
       .webinar__mac-image {
         width: 219px !important;
         height: 123px !important;
@@ -3071,7 +3101,7 @@ html {
           -ms-flex-wrap: wrap !important;
               flex-wrap: wrap !important; }
       .webinar__zapis > * {
-        min-width: 300.43px !important;
+        min-width: 300.43px;
         margin-bottom: 10px !important; }
     .webinar h2 {
       font-size: 1.4rem !important; } }
@@ -3103,11 +3133,56 @@ html {
     display: none !important;
     visibility: hidden !important; } }
 
+@media screen and (min-height: 250px) and (max-height: 450px) and (min-width: 500px) and (max-width: 900px) {
+  .modal_wrapper {
+    -webkit-box-align: start !important;
+    -webkit-align-items: flex-start !important;
+        -ms-flex-align: start !important;
+            align-items: flex-start !important; }
+  .fransh .tape {
+    max-width: 500px;
+    padding: 10px !important;
+    height: auto !important; }
+    .fransh .tape__left, .fransh .tape__right {
+      top: 77px !important; }
+  .exp {
+    min-height: 1380px !important; }
+  .webinar__mac {
+    position: absolute !important;
+    right: 0 !important; } }
+
 @media screen and (min-width: 766px) and (max-width: 990px) {
   .modals-up {
     position: relative !important;
     left: 0 !important;
     top: 0px !important; } }
+
+@media screen and (min-width: 610px) and (max-width: 992.1px) {
+  .star_right {
+    top: 100px !important; }
+  .exp {
+    min-height: 800px !important; }
+  .about {
+    padding-bottom: 100px !important;
+    padding-left: 10px !important; }
+    .about__block-descr {
+      text-align: left !important; }
+    .about__block .button_wrap {
+      margin: 0 !important; }
+    .about__seva {
+      margin-top: -350px !important;
+      margin-left: 49% !important; }
+    .about .plaha {
+      position: absolute !important;
+      right: 8%;
+      bottom: 100px;
+      max-width: 300px !important; }
+    .about .center_100 {
+      bottom: -40px !important;
+      width: auto !important;
+      left: 23px !important; }
+    .about .container {
+      max-width: 100% !important; } }
 
 @media screen and (max-width: 991.9px) {
   .clock1 {
@@ -3137,19 +3212,21 @@ html {
     padding-left: 0 !important;
     max-width: 480px;
     margin: 0 auto !important; }
-  .modal_wrapper .modals > svg {
-    top: 0 !important;
-    width: 100% !important;
-    right: 0 !important; }
+  .modal_wrapper {
+    overflow-y: auto; }
+    .modal_wrapper .modals > svg {
+      top: 0 !important;
+      width: 100% !important;
+      right: 0 !important; }
   h3.orange_text {
     text-align: center !important; }
   .clock3 {
-    margin-top: -400px;
-    margin-left: 150px; }
+    margin-top: -200px;
+    margin-left: -50px; }
   .clock2 {
-    margin-left: -250px;
+    margin-left: -320px;
     max-width: 150px;
-    margin-top: -100px; }
+    margin-top: -180px; }
   .mobile_show {
     display: block !important; }
   .star_container:not(.star_mobile) {
@@ -3169,7 +3246,7 @@ html {
               transform: rotate(-1deg); }
     .star_left .star > span {
       max-width: 180px;
-      font-size: 1em !important; }
+      font-size: 0.9em !important; }
     .star_left .star__item2 {
       padding-top: 15px;
       margin-left: -29px;
@@ -3189,19 +3266,23 @@ html {
     right: -330px; }
     .star_right .star > span {
       max-width: 180px;
-      font-size: 1em !important; }
+      font-size: 0.9em !important; }
     .star_right .star__item1 {
       margin-top: -55px;
       margin-left: -48px; }
     .star_right .star__item5 {
-      margin-top: -82px;
-      margin-left: -37px;
+      margin-top: -92px !important;
+      margin-left: -45px;
       left: -32% !important; }
       .star_right .star__item5:before, .star_right .star__item5:after {
-        margin-left: -54px; }
+        margin-top: -2px !important;
+        margin-left: -178px !important; }
     .star_right .star__item3 {
-      margin-top: -67px;
-      margin-left: -40px; }
+      margin-top: -67px !important;
+      margin-left: -40px !important;
+      left: -34% !important; }
+      .star_right .star__item3:before, .star_right .star__item3:after {
+        margin-left: -144px !important; }
     .star_right .star__item7 {
       max-width: 320px !important;
       margin-left: -200px;
@@ -3219,8 +3300,8 @@ html {
   strong.heading_title {
     font-size: 1.2rem !important; }
   .button_wrap {
-    width: 300px !important;
-    height: 55px !important; }
+    max-width: 300px !important;
+    max-height: 55px !important; }
     .button_wrap a, .button_wrap button {
       width: inherit !important;
       height: inherit !important; }
@@ -3228,7 +3309,7 @@ html {
       width: inherit !important;
       height: inherit !important; }
   .button_wrap:not(.no_wrap) {
-    margin: 0 auto !important; }
+    margin: 0 auto; }
   .elephant {
     overflow: hidden; }
   .fransh {
@@ -3244,13 +3325,13 @@ html {
       max-width: 300px !important; }
       .prices__item img {
         max-width: 100%;
-        top: -62% !important;
+        top: -45% !important;
         left: 0px !important; }
     .prices h2 {
       margin-bottom: 30px !important; }
   .fransh {
     padding-bottom: 50px; }
-  .forWho, .team {
+  .team {
     padding-bottom: 90px;
     background: url("../img/bg2_mobile.png") no-repeat center top !important;
     background-size: cover !important; }
@@ -3363,8 +3444,10 @@ html {
     background-size: cover !important; }
     .about__seva {
       position: static !important;
-      max-width: 100%;
-      margin-top: 90px; }
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin: 90px auto 0 auto; }
     .about__particles {
       background: url("../img/particles_mobile.png") no-repeat center center !important;
       background-size: contain !important;
@@ -3445,15 +3528,23 @@ html {
   .exp {
     background: url("../img/bg4_mobile.png") no-repeat center top !important;
     background-size: 100% 100% !important;
-    min-height: 1700px !important; }
+    min-height: 1500px; }
     .exp h2:first-child {
       margin-bottom: 15px !important; }
     .exp h2 {
       font-size: 3rem !important; }
+    .exp .container {
+      max-width: 100% !important; }
   .webinar {
     background: url("../img/bg5_mobile.png") no-repeat center center !important;
     background-size: 100% 100% !important;
     margin-top: -64px !important; }
+    .webinar .container {
+      max-width: 100% !important;
+      min-width: 100% !important;
+      width: 100% !important; }
+    .webinar__descr-name {
+      width: 549px; }
   .elephant {
     background: url("../img/bg5_mobile.png") no-repeat center center !important;
     background-size: cover !important;
@@ -3512,8 +3603,8 @@ html {
   .digital_container .digital_form h3 {
     font-size: 1.5rem; }
   .boxes {
-    width: 117px !important;
-    height: 150px !important; }
+    width: 147px !important;
+    height: 180px !important; }
   .elephant_container {
     width: 850px !important;
     height: 809px !important; }
@@ -3548,7 +3639,17 @@ html {
     font-size: 7rem !important;
     margin-top: 150px !important; }
   .exp .star span:not(.star__item7) {
-    max-width: 220px; }
+    max-width: 240px; }
+  .exp .star__item3 {
+    max-width: 210px !important;
+    margin-left: 120px !important; }
+    .exp .star__item3:before, .exp .star__item3:after {
+      margin-left: -120px; }
+  .exp .star__item5 {
+    max-width: 210px !important;
+    margin-left: 150px; }
+    .exp .star__item5:before, .exp .star__item5:after {
+      margin-left: -150px; }
   .forWho__blocks-all > p {
     max-width: 400px; }
   .prices__item img {
@@ -6667,7 +6768,7 @@ p {
       top: 25px; }
 
 .knowing {
-  height: 1320px;
+  height: 1376px;
   position: relative;
   background: url("../img/bg3.jpg") no-repeat center bottom;
   margin-top: -2px; }
@@ -6748,7 +6849,7 @@ p {
   padding: 0 !important; }
   .cards__item {
     width: 300px !important;
-    height: 615px !important;
+    height: 561px !important;
     background-color: #1e2942;
     padding: 67px 44px;
     position: relative;
@@ -6876,14 +6977,14 @@ p {
         top: 64px;
         left: 22.5px; }
     .exp .star__item3 {
-      width: 156px;
-      left: -29%; }
+      width: 335px;
+      left: -62%; }
       .exp .star__item3:before {
         top: 19px;
-        left: 187.5px; }
+        left: 356.5px; }
       .exp .star__item3:after {
         top: 11px;
-        left: 179.5px; }
+        left: 348.5px; }
     .exp .star__item4 {
       left: 95%;
       width: 279px; }
@@ -6894,14 +6995,15 @@ p {
         top: 9px;
         left: -38px; }
     .exp .star__item5 {
-      width: 226px;
-      left: -42%; }
+      width: 359px;
+      left: -68%;
+      margin-top: -11px; }
       .exp .star__item5:before {
-        top: 17px;
-        left: 247.5px; }
+        top: 30px;
+        left: 380.5px; }
       .exp .star__item5:after {
-        top: 9px;
-        left: 239.5px; }
+        top: 22px;
+        left: 372.5px; }
     .exp .star__item6 {
       left: 95%;
       width: 277px; }
@@ -6913,7 +7015,7 @@ p {
         left: -44px; }
     .exp .star__item7 {
       top: 500px;
-      width: 413px;
+      width: 427px;
       left: 9%; }
       .exp .star__item7:before {
         top: -30px;
@@ -7204,10 +7306,12 @@ footer {
     font-size: 2.65rem !important;
     margin-top: 0 !important; }
 
-#policy_modal .modals > div {
-  text-align: left;
-  max-height: 380px;
-  overflow-y: auto; }
+#policy_modal .modals {
+  max-width: 600px !important; }
+  #policy_modal .modals > div {
+    text-align: left;
+    max-height: 380px;
+    overflow-y: auto; }
 
 #success_modal .modals {
   max-height: 250px; }
@@ -7356,10 +7460,7 @@ footer {
         margin: 34px auto;
         font-size: 2rem; }
       .fransh__box-price a {
-        font-size: 1.2rem !important; }
-      .fransh__box-price > .button_wrap {
-        width: 316px;
-        height: 67px; }
+        font-size: 1.2rem; }
 
 .elephant {
   height: 1310px;
@@ -7461,19 +7562,20 @@ footer {
   width: 1100px;
   margin: 0 auto;
   height: 1051px;
-  position: relative; }
+  position: relative;
+  margin-top: 107px; }
 
 .boxes_show {
   opacity: 1 !important; }
 
 .boxes {
-  width: 147px;
-  height: 200px;
+  width: 187px;
+  height: 234px;
   background-color: #263454;
   z-index: 100;
   position: absolute;
-  -webkit-box-shadow: 0 0 20px #263454;
-          box-shadow: 0 0 20px #263454;
+  -webkit-box-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
+          box-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
   display: none; }
   .boxes img {
     max-width: 75%; }
@@ -7599,6 +7701,8 @@ footer {
   background: url("../img/bg8.jpg") no-repeat center center; }
   .prices h2 {
     margin-bottom: 380px; }
+  .prices .container > .row > div:first-child > div > p {
+    top: 31% !important; }
   .prices__bg {
     width: 100%;
     height: 100%;
@@ -7668,11 +7772,17 @@ footer {
   .prices__item {
     width: 340px;
     margin: 0 auto;
-    height: 300px;
+    height: 340px;
     background: rgba(26, 32, 50, 0.8);
     position: relative;
-    padding-top: 110px;
-    text-align: center; }
+    padding-top: 150px;
+    text-align: center;
+    position: relative; }
+    .prices__item > p {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      top: 26%; }
     .prices__item b {
       color: #fff;
       font-size: 2.1rem;
@@ -7865,13 +7975,13 @@ ul {
     .webinar_wrapper .modals-descr h3 {
       margin-bottom: 15px !important;
       text-align: left !important; }
-    .webinar_wrapper .modals-descr ul {
-      line-height: 1.8; }
     .webinar_wrapper .modals-descr li {
       color: #fff;
       margin-left: 20px;
       font-size: 1.2rem;
-      position: relative; }
+      position: relative;
+      line-height: 1.2;
+      margin-bottom: 10px; }
       .webinar_wrapper .modals-descr li:before {
         width: 10px;
         height: 10px;
@@ -7932,10 +8042,12 @@ g[class^="gf"]:active > path {
     fill: #fff; }
 
 .button_wrap {
-  position: relative; }
+  position: relative;
+  width: 315px;
+  height: 52px; }
   .button_wrap > button, .button_wrap > a {
-    width: 315px;
-    height: 52px;
+    width: inherit !important;
+    height: inherit !important;
     cursor: pointer;
     background-color: #ffae00;
     border: 0;
@@ -7968,8 +8080,8 @@ g[class^="gf"]:active > path {
     .button_wrap > button:hover:before, .button_wrap > a:hover:before {
       left: 110%; }
   .button_wrap::after {
-    width: 315px;
-    height: 52px;
+    width: inherit !important;
+    height: inherit !important;
     content: '';
     z-index: 0;
     position: absolute;
@@ -7987,3 +8099,6 @@ g[class^="gf"]:active > path {
   position: absolute;
   bottom: 0;
   left: 0; }
+
+.show-mobile {
+  display: none; }
