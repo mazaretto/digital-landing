@@ -25,6 +25,19 @@ $p_size: .9rem!important;
 			}
 		}
 	}
+	.team__item {
+		margin:10px auto!important;
+		img {
+			display: inline!important;
+		}
+	}
+	.team__text {
+		max-width: 200px!important;
+		left: 54px!important;
+	}
+	.modal_wrapper {
+		overflow: hidden!important;
+	}
 	#video_modal {
 		.modals {
 			min-width: 360px!important;
