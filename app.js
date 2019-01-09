@@ -28,19 +28,22 @@ import LIBS from "./libs/lib.js"
 			scrollTop: offTop
 		}, 1000)
 	})
-
+//http://api.geonames.org/timezoneJSON?lat=55.753215&lng=37.622504&username=mazaretto
 	var moscowTime = (callback) => {
 		$.ajax({
 			method: 'GET',
-			url: 'http://api.geonames.org/timezoneJSON?lat=55.753215&lng=37.622504&username=mazaretto'
+			url: 'http://cc06866.tmweb.ru/?engine=webinar'
 		}).done(data => {
-			return callback(data)
+			return callback(JSON.parse( data ))
 		})
 	}
 
 	function initWebinar (dd,hh,mm) {
 		let mTime = moscowTime(moscowTime => {
 			 // Set the date we're counting down to
+
+			moscowTime = JSON.parse(moscowTime)
+
 			var countDownDate = new Date(dd);
 			var lengthHours = hh,	
 				mins = mm;
