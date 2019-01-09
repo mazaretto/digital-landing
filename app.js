@@ -32,23 +32,29 @@ import LIBS from "./libs/lib.js"
 	var moscowTime = (callback) => {
 		$.ajax({
 			method: 'GET',
-			url: 'http://cc06866.tmweb.ru/?engine=webinar'
+			url: 'https://api.timezonedb.com/v2.1/list-time-zone?key=0L5MKXDCPKJ7&zone=Europe/Moscow&format=json'
 		}).done(data => {
-			return callback(JSON.parse( data ))
+			if(data.status === "OK") {
+				let t = data.zones[0]
+				var unixTime = Math.floor(t.timestamp - t.gmtOffset / 1000)
+				$.ajax({
+					url: API_URL + 'time.php?timestamp='+unixTime,
+					method: 'GET',
+				}).done(MT => {
+					if(MT) return callback(new Date(MT))
+				})
+			}
 		})
 	}
 
 	function initWebinar (dd,hh,mm) {
 		let mTime = moscowTime(moscowTime => {
 			 // Set the date we're counting down to
-
-			moscowTime = JSON.parse(moscowTime)
-
 			var countDownDate = new Date(dd);
 			var lengthHours = hh,	
 				mins = mm;
 
-			var moscowDate = new Date(moscowTime.time)
+			var moscowDate = moscowTime
 			var nn = new Date();
 			var hoursMoscow = nn.getHours()-moscowDate.getHours()
 
