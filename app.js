@@ -18,54 +18,78 @@ import LIBS from "./libs/lib.js"
 	    }, 1000);
 	});
 
+	$('.scrollto').click(function (e) {
+		e.preventDefault();
+
+		let hr = $($(this).attr('href'))
+		let offTop = hr.offset().top
+
+		$('html, body:not(:animated)').animate({
+			scrollTop: offTop
+		}, 1000)
+	})
+
+	var moscowTime = (callback) => {
+		$.ajax({
+			method: 'GET',
+			url: 'http://api.geonames.org/timezoneJSON?lat=55.753215&lng=37.622504&username=mazaretto'
+		}).done(data => {
+			return callback(data)
+		})
+	}
+
 	function initWebinar (dd,hh,mm) {
-		// Set the date we're counting down to
-		var countDownDate = new Date(dd).getTime();
-		var lengthHours = hh,	
-			mins = mm;
+		let mTime = moscowTime(moscowTime => {
+			 // Set the date we're counting down to
+			var countDownDate = new Date(dd);
+			var lengthHours = hh,	
+				mins = mm;
 
-		// Update the count down every 1 second
-		var Webinar = setInterval(function() {
+			var moscowDate = new Date(moscowTime.time)
+			var nn = new Date();
+			var hoursMoscow = nn.getHours()-moscowDate.getHours()
 
-		  // Get todays date and time
-		  var now = new Date().getTime();
+			countDownDate = new Date(countDownDate.setHours(countDownDate.getHours()+hoursMoscow))
+			// Update the count down every 1 second
+			var Webinar = setInterval(function() {
+			  // Get todays date and time
+			  var now = new Date();
+			  var distance = countDownDate - now;
+			  // Time calculations for days, hours, minutes and seconds
+			  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+		  	  (seconds < 10) ? seconds = '0'+seconds : seconds;
+		 	  (minutes < 10) ? minutes = '0'+minutes : minutes;
+		  	  (hours < 10) ? hours = '0'+hours : hours;
+		  	  (days < 10) ? days = '0'+days : days
+			  if(days == 0 && hours == 0) {
+			  	$('.timer').html(`${minutes}:${seconds}`)
+			  } else if(days == 0 && hours != 0) {
+			  	$('.timer').html(`${hours}:${minutes}:${seconds}`)
+			  } else {
+			  	$('.timer').html(`${days}:${hours}:${minutes}:${seconds}`)
+			  }
+			  // If the count down is finished, write some text 
+			  if (distance < 0) {
+			  	let n = new Date().getTime()
+			  	let dist = n - countDownDate
+			  	let h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+			  	let m = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+			  	let msg = '';
 
-		  // Find the distance between now and the count down date
-		  var distance = countDownDate - now;
+			  	if(h >= lengthHours && m >= mins) {
+			  		msg = 'ПРОШЕЛ';
+			  		clearInterval(Webinar)
+			  	} else {
+			  		msg = 'В ЭФИРЕ';
+			  	}
 
-		  // Time calculations for days, hours, minutes and seconds
-		  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-		  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-		  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-	  	  (seconds < 10) ? seconds = '0'+seconds : seconds;
-	 	  (minutes < 10) ? minutes = '0'+minutes : minutes;
-	  	  (hours < 10) ? hours = '0'+hours : hours;
-	  	  (days < 10) ? days = '0'+days : days
-		  if(days == 0 && hours == 0) {
-		  	$('.timer').html(`${minutes}:${seconds}`)
-		  } else if(days == 0 && hours != 0) {
-		  	$('.timer').html(`${hours}:${minutes}:${seconds}`)
-		  } else {
-		  	$('.timer').html(`${days}:${hours}:${minutes}:${seconds}`)
-		  }
-		  // If the count down is finished, write some text 
-		  if (distance < 0) {
-		  	let n = new Date().getTime()
-		  	let dist = n - countDownDate
-		  	let h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-		  	let m = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
-		  	let msg = '';
-		  	if(h >= lengthHours && m >= mins) {
-		  		msg = 'ПРОШЕЛ';
-		  		clearInterval(Webinar)
-		  	} else {
-		  		msg = 'В ЭФИРЕ';
-		  	}
-
-		  	$('.timer').html(msg)
-		  }
-		}, 1000);
+			  	$('.timer').html(msg)
+			  }
+			}, 1000);	
+		})
 	}
 
 	const WebinarObj = {
