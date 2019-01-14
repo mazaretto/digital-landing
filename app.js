@@ -28,7 +28,7 @@ import LIBS from "./libs/lib.js"
 			scrollTop: offTop
 		}, 1000)
 	})
-//http://api.geonames.org/timezoneJSON?lat=55.753215&lng=37.622504&username=mazaretto
+
 	var moscowTime = (callback) => {
 		$.ajax({
 			method: 'GET',
@@ -46,6 +46,71 @@ import LIBS from "./libs/lib.js"
 			}
 		})
 	}
+
+	var values= new Array("shopId", "scid", "sum") 
+	var keys= new Array("565716","867441","29500") 
+	
+	const shopId = 565716
+	const scId = 867441
+	const ymURL = 'https://money.yandex.ru/eshop.xml'
+
+	const formPrices = {
+		'#form_buy_1': {
+			price: 29500
+		},
+		'#form_buy_2': {
+			price: 87000
+		},
+
+		inputs: [
+			{
+				type: 'hidden',
+				name: 'shopId',
+				value: shopId
+			},
+			{
+				type: 'hidden',
+				name: 'scid',
+				value: scId
+			},
+			{
+				type: 'hidden',
+				name: 'sum',
+				value: null
+			}
+		]
+	}
+
+	function createVirtualForm (id) {
+		let mapForm = document.createElement("form");   
+		mapForm.method = "POST";
+		mapForm.action = ymURL;
+
+		formPrices.inputs.map(inp => {
+			let shopInput = document.createElement("input");
+			shopInput.type = inp.type
+			shopInput.name = inp.name
+			
+			if (inp.value === null) {
+				shopInput.value = formPrices[id].price
+			} else {
+				shopInput.value = inp.value
+			}
+
+			mapForm.appendChild(shopInput)
+		})
+		// Add the form to dom
+		document.body.appendChild(mapForm);
+		// Just submit
+		mapForm.submit();
+	}
+
+	// yandex money script
+	$('*[data-submit]').click(function (e) {
+		e.preventDefault();
+
+		createVirtualForm($(this).attr('data-submit'));
+	});
 
 	function initWebinar (dd,hh,mm) {
 		let mTime = moscowTime(moscowTime => {
