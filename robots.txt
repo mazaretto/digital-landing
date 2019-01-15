@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin
+Disallow: /index.html
+Disallow: /index
+Disallow: *?
+Host: digital-school.biz
+Sitemap: http://[[host]]/sitemap.xml
