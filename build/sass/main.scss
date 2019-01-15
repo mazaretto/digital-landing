@@ -936,7 +936,8 @@ footer {
 	}
 }
 #callback_modal .modals,
-#rasr_modal .modals,
+#rasr_modal .modals,,
+#buy_modal .modals,
 #franshise_modal .modals,
 #policy_modal .modals {
 	max-width: 573px;
@@ -953,7 +954,7 @@ footer {
 	}
 }
 
-#rasr_modal {
+#rasr_modal, #buy_modal {
 	.modals {
 		padding: 60px;
 

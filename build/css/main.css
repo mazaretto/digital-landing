@@ -7331,6 +7331,7 @@ footer {
 
 #callback_modal .modals,
 #rasr_modal .modals,
+#buy_modal .modals,
 #franshise_modal .modals,
 #policy_modal .modals {
   max-width: 573px;
@@ -7341,6 +7342,7 @@ footer {
   background-image: linear-gradient(-45deg, #1e293d 55%, rgba(255, 174, 0, 0.1)); }
   #callback_modal .modals svg,
   #rasr_modal .modals svg,
+  #buy_modal .modals svg,
   #franshise_modal .modals svg,
   #policy_modal .modals svg {
     left: -28%;
@@ -7348,9 +7350,9 @@ footer {
     height: 103%;
     top: -1.5%; }
 
-#rasr_modal .modals {
+#rasr_modal .modals, #buy_modal .modals {
   padding: 60px; }
-  #rasr_modal .modals input[type="submit"] {
+  #rasr_modal .modals input[type="submit"], #buy_modal .modals input[type="submit"] {
     max-width: 100%;
     margin: 13px auto; }
 

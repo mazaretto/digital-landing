@@ -586,7 +586,7 @@
 								<img src="img/s1.png" alt="" />
 								<p><strong>Полный онлайн-курс</strong> (11 блоков)</p>
 								<b class="bold">29 500 рублей</b>
-								<a href="" class="prices__item-buy" data-submit="#form_buy_1" onclick="yaCounter51619499.reachGoal('BUY');">Купить</a>
+								<a href="" class="prices__item-buy" data-modal="#buy_modal" data-cource="Полный онлайн-курс (11 блоков)" data-submit="#form_buy_1" onclick="yaCounter51619499.reachGoal('BUY');">Купить</a>
 								<a href="" class="prices__item-rasr" data-modal="#rasr_modal" onclick="yaCounter51619499.reachGoal('BUY_IN_RASR');">Оплатить в рассрочку</a>
 							</div>
 						</div>
@@ -595,7 +595,7 @@
 								<img src="img/s2.png" alt="" />
 								<p><strong>Полный онлайн-курс</strong> (11 блоков) + Наставничество Всеволода </p>
 								<b class="bold">87 000 рублей</b>
-								<a href="" class="prices__item-buy" data-submit="#form_buy_2" onclick="yaCounter51619499.reachGoal('BUY');">Купить</a>
+								<a href="" class="prices__item-buy" data-modal="#buy_modal" data-cource="Полный онлайн-курс (11 блоков) + Наставничество Всеволода Славинского" data-submit="#form_buy_2" onclick="yaCounter51619499.reachGoal('BUY');">Купить</a>
 								<a href="" class="prices__item-rasr" data-modal="#rasr_modal" onclick="yaCounter51619499.reachGoal('BUY_IN_RASR');">Оплатить в рассрочку</a>
 							</div>
 						</div>
@@ -678,6 +678,31 @@
 						</div>
 						<span class="digital_form-this-subtext">
 							Нажимая на кнопку (Оставить заявку) вы даете согласие на обработку персональных данных и соглашаетесь <br/>с <a href="" data-modal="#policy_modal">«политикой конфиденциальности»</a>
+						</span>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<!-- buy modal -->
+		<div class="modal_wrapper" id="buy_modal">
+			<div class="background_modal">
+				<div class="digital_form modals">
+					<span class="close">X</span>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200.34 228.29"><defs><style>.cls-1,.cls-2{fill:none;}.cls-2{stroke-opacity: .2;stroke:#ffae00;stroke-linecap:round;stroke-linejoin:round;stroke-width:.2px;}</style></defs><title>Ресурс 4</title><g id="Слой_2" data-name="Слой 2"><g id="Слой_1-2" data-name="Слой 1"><polygon class="cls-1" points="196.83 169.41 196.83 58.8 100.17 3.5 3.5 58.8 3.5 169.41 100.17 224.71 196.83 169.41"/><polygon class="cls-2" points="100.17 53.25 127.99 101.44 155.81 149.63 100.17 149.63 44.52 149.63 72.34 101.44 100.17 53.25"/><polygon class="cls-2" points="100.17 224.79 127.99 187.21 155.81 149.62 100.17 149.62 44.52 149.62 72.34 187.21 100.17 224.79"/><polygon class="cls-2" points="100.17 224.71 44.52 149.63 3.5 169.41 100.17 224.71"/><polygon class="cls-2" points="100.17 224.71 155.81 149.63 196.84 169.41 100.17 224.71"/><polygon class="cls-2" points="3.5 58.8 3.5 169.4 44.52 149.63 3.5 58.8"/><polygon class="cls-2" points="196.83 58.8 196.83 169.4 155.81 149.63 196.83 58.8"/><polygon class="cls-2" points="155.82 149.63 196.83 58.8 100.17 53.25 155.82 149.63"/><polygon class="cls-2" points="100.17 53.25 196.83 58.8 100.17 3.5 100.17 53.25"/><polygon class="cls-2" points="100.17 53.25 3.5 58.8 100.17 3.5 100.17 53.25"/></g></g></svg>
+
+					<h3 class="orange_text">Покупка курса</h3>
+					<p>Впишите свои данные для дальнейшей оплаты курса</p>
+					<form action="" method="POST" data-success="#success_modal" class="digital_form-this">
+						<input type="hidden" name="orderDetails" value="" />
+						<input type="text" required name="custName" placeholder="Имя" />
+						<input type="phone" required name="customerNumber" placeholder="Телефон" />
+						<input type="email" required name="custEmail" placeholder="E-mail" />
+						<div class="responsive_field">
+							<input type="submit" value="Оплатить" />
+						</div>
+						<span class="digital_form-this-subtext">
+							Нажимая на кнопку (Оплатить) вы даете согласие на обработку персональных данных и соглашаетесь <br/>с <a href="" data-modal="#policy_modal">«политикой конфиденциальности»</a>
 						</span>
 					</form>
 				</div>

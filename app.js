@@ -62,23 +62,29 @@ import LIBS from "./libs/lib.js"
 			price: 87000
 		},
 
-		inputs: [
-			{
-				type: 'hidden',
-				name: 'shopId',
+		inputs: {
+			'shopId': {
 				value: shopId
 			},
-			{
-				type: 'hidden',
-				name: 'scid',
+			'scId':{
 				value: scId
 			},
-			{
-				type: 'hidden',
-				name: 'sum',
+			'sum': {
 				value: null
+			}, 
+			'customerNumber':{
+				value: ''
+			},
+			'custName': {
+				value: ''
+			},
+			'custEmail': {
+				value: ''
+			},
+			'orderDetails': {
+				value: ''
 			}
-		]
+		}
 	}
 
 	function createVirtualForm (id) {
@@ -86,31 +92,58 @@ import LIBS from "./libs/lib.js"
 		mapForm.method = "POST";
 		mapForm.action = ymURL;
 
-		formPrices.inputs.map(inp => {
-			let shopInput = document.createElement("input");
-			shopInput.type = inp.type
-			shopInput.name = inp.name
-			
-			if (inp.value === null) {
-				shopInput.value = formPrices[id].price
+		for(let i in formPrices.inputs) {
+			let priceInput = formPrices.inputs[i]
+
+			let inp = document.createElement('input')
+			inp.type = "hidden"
+			inp.name = i 
+
+			if(i === 'sum') {
+				priceInput.value = formPrices[id].price
+				inp.value = priceInput.value
 			} else {
-				shopInput.value = inp.value
+				inp.value = priceInput.value
 			}
 
-			mapForm.appendChild(shopInput)
-		})
+			mapForm.appendChild(inp)
+		}
 		// Add the form to dom
 		document.body.appendChild(mapForm);
 		// Just submit
 		mapForm.submit();
 	}
 
+	let buyForm = $('#buy_modal form')
 	// yandex money script
 	$('*[data-submit]').click(function (e) {
 		e.preventDefault();
 
-		createVirtualForm($(this).attr('data-submit'));
+		let modalId = $(this).attr('data-submit')
+		let cource = $(this).attr('data-cource')
+		buyForm.attr('id',modalId)
+		buyForm.find('input[name="orderDetails"]').val(cource)
 	});
+
+
+	buyForm.submit(function (e) {
+		e.preventDefault();
+
+		let formId = $(this).attr('id')
+		let inputsObject = {}
+		let inputs = $(this).find('input:not([type="submit"])').each(function () {
+			let name = $(this).attr('name'),
+				v = $(this).val()
+
+			inputsObject[name] = v
+		})
+
+		for(let i in inputsObject) {
+			formPrices.inputs[i].value = inputsObject[i]
+		}
+		// sub form buy
+		createVirtualForm(formId);
+	})
 
 	function initWebinar (dd,hh,mm) {
 		let mTime = moscowTime(moscowTime => {
@@ -408,7 +441,7 @@ import LIBS from "./libs/lib.js"
 
 	function submittingForms () {
 		// digital_form_submit (not modal)
-		$('.modal_wrapper form').submit(function (e) {
+		$('.modal_wrapper:not(#buy_modal) form').submit(function (e) {
 			e.preventDefault()
 			let $ser = $(this).serialize()
 			$.ajax({
