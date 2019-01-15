@@ -115,12 +115,14 @@ import LIBS from "./libs/lib.js"
 	}
 
 	let buyForm = $('#buy_modal form')
+	let textCourse = $('#buy_modal_course')
 	// yandex money script
 	$('*[data-submit]').click(function (e) {
 		e.preventDefault();
 
 		let modalId = $(this).attr('data-submit')
 		let cource = $(this).attr('data-cource')
+		textCourse.html(cource)
 		buyForm.attr('id',modalId)
 		buyForm.find('input[name="orderDetails"]').val(cource)
 	});
